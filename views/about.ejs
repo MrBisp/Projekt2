@@ -1,0 +1,20 @@
+<%- include('layouts/header'); -%>
+
+<title>Forside</title>
+</head>
+<body>
+<%- include('layouts/scripts'); -%>
+<%- include('layouts/nav'); -%>
+<h1>Aboouit!</h1>
+
+<p>Alle revisorer:</p>
+<div id="alleRevisorerResult"></div>
+
+<script>
+    (async function(){
+        let revisorer = await getData('revisor');
+        document.getElementById('alleRevisorerResult').innerHTML = revisorer;
+    })();
+</script>
+
+<%- include('layouts/footer'); -%>

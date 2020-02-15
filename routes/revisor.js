@@ -4,11 +4,13 @@ const Revisor = require('../models/Revisor');
 
 //Routes
 router.get('/', async (req, res) => {
+    console.log('Get request');
     try {
+        console.log('try');
         const revisorer = await Revisor.find();
         res.json(revisorer);
     } catch (err) {
-        res.json({msg: 'Fejl'});
+        res.json({msg: 'Fejl: ' + err});
     }
 });
 
@@ -31,6 +33,7 @@ router.post('/', async (req, res) => {
 
 //Hent en specifik revisor
 router.get('/:id', async (req, res) => {
+    console.log('get id');
     try {
         const revisor = await Revisor.findById(req.params.id);
         res.json(revisor);

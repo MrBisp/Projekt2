@@ -1,0 +1,18 @@
+    <%- include('layouts/header'); -%>
+
+    <title>Forside</title>
+</head>
+<body>
+    <%- include('layouts/scripts'); -%>
+    <%- include('layouts/nav'); -%>
+    <h1>Forside!</h1>
+
+    <% for (var i=0; i<revisorer.length; i++){ %>
+        <p>Navn: <%= revisorer[i].navn %> </p>
+        <p>Start dag: <%= revisorer[i].startDag %> </p>
+        <p>Slut dag: <%= revisorer[i].slutDag %> </p>
+        <p>id: <%= revisorer[i]._id %> </p>
+        <p>-----</p>
+    <% } %>
+
+    <%- include('layouts/footer'); -%>

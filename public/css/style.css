@@ -1,0 +1,47 @@
+body{
+    background: rgb(20, 20, 20);
+}
+
+* {
+    font-family: 'Roboto', 'roboto', sans-serif;
+    color: white;
+}
+
+h1 {
+    color: white;
+    clear: both;
+}
+
+/* Nav links */
+ul {
+    display: block;
+    padding: 0;
+}
+ul li{
+    float: left;
+    display: block;
+    list-style: none;
+    padding: 8px 12px;
+}
+ul li::after, ul li::before{
+    content: "";
+    clear: both;
+}
+ul li a{
+    color: white;
+}
+
+
+/* Formular */
+form {
+    background: rgb(40, 40, 40);
+    display: block;
+    padding: 16px;
+}
+form label {
+    display: block;
+    color: white;
+}
+form input, button {
+    color: black;
+}

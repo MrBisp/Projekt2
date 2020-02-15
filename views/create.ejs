@@ -1,0 +1,23 @@
+<%- include('layouts/header'); -%>
+
+<title>Tilføj revisor</title>
+</head>
+<body>
+<%- include('layouts/scripts'); -%>
+<%- include('layouts/nav'); -%>
+<h1>Tilføj revisor</h1>
+
+<form action="/posts/store" method="POST">
+    <label>Navn</label>
+    <input type="text" id="navn" name="navn" value="Frederik">
+    <br><br>
+    <label>Start Dag</label>
+    <input type="number" id="startDag" name="startDag" value="8">
+    <br><br>
+    <label>Slut dag</label>
+    <input type="number" id="slutDag" name="slutDag" value="16">
+    <br><br>
+    <button type="submit" id="addRevsiorBtn">Tilføj revisor</button>
+</form>
+
+<%- include('layouts/footer'); -%>
