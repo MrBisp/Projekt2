@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
 
 //Tilføj en revisor
 router.post('/', async (req, res) => {
+    console.log('hey!_ ' + req.body);
     const revisor = new Revisor({
         navn: req.body.navn,
         startDag: req.body.startDag,

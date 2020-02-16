@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 
 //Middleware
 app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -30,7 +31,6 @@ app.get('/', async (req, res) => {
         res.render('index', {
             revisorer: revisorer
         });
-        console.log('Revisorer: ' + revisorer);
     } catch (e) {
         console.log(e);
     }
@@ -53,6 +53,7 @@ app.get('/posts/store', (req, res) => { //Når der gemmes en revisor
 
 //Når der oprettes en ny revisor
 app.post('/posts/store', async (req, res) => {
+    console.log(req.body);
     try {
         await Revisor.create(req.body);
         res.redirect('/');
