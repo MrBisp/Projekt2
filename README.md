@@ -21,3 +21,5 @@ TODO:
 6. Ændre klassediagram
    - Lang og kort møde
    - Type møde (skat, moms, årsregnskab osv)
+
+7. Observables: https://stackoverflow.com/questions/38639248/mongoose-model-for-multi-types-of-users

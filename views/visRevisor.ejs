@@ -1,0 +1,16 @@
+<%- include('layouts/header'); -%>
+
+<title>Vis revisor</title>
+</head>
+<body>
+<%- include('layouts/scripts'); -%>
+<%- include('layouts/nav'); -%>
+<% if( revisor.navn != null ) { %>
+<h1><%= revisor.navn %></h1>
+
+<p>Start dag: <%= revisor.startDag %></p>
+<p>Start dag: <%= revisor.slutDag %></p>
+
+<% } %>
+
+<%- include('layouts/footer'); -%>

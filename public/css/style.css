@@ -45,3 +45,6 @@ form label {
 form input, button {
     color: black;
 }
+select, select option {
+    color: black;
+}
