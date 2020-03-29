@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 
-const Revisor = require('./backend/models/Revisor');
+const Revisor = require('./models/Revisor');
 
 //Middleware
 const validateMiddleware = require('./frontend/middleware/validationMiddleware');
@@ -39,9 +39,9 @@ app.use(function(req, res, next) {
 app.use( '/posts/store', validateMiddleware);
 
 //Import routes (api)
-app.use('/revisor', require('./backend/routes/revisor'));
-app.use('/moede', require('./backend/routes/moede'));
-app.use('/user', require('./backend/routes/user'));
+app.use('/revisor', require('./routes/revisor'));
+app.use('/moede', require('./routes/moede'));
+app.use('/user', require('./routes/user'));
 
 
 //Routes til files
