@@ -9,16 +9,16 @@ const ejs = require('ejs');
 const Revisor = require('./models/Revisor');
 
 //Middleware
-const validateMiddleware = require('./frontend/middleware/validationMiddleware');
+const validateMiddleware = require('./middleware/validationMiddleware');
 
 //Controllers
-const nyRevisorController = require('./frontend/controllers/nyRevisor');
-const homeController = require('./frontend/controllers/home');
-const aboutController = require('./frontend/controllers/about');
-const revisorSideController = require('./frontend/controllers/revisorSide');
-const storeRevisor = require('./frontend/controllers/storeRevisor');
-const alleRevisorerController = require('./frontend/controllers/alleRevisorer');
-const visMoedeController = require('./frontend/controllers/visMoede');
+const nyRevisorController = require('./controllers/nyRevisor');
+const homeController = require('./controllers/home');
+const aboutController = require('./controllers/about');
+const revisorSideController = require('./controllers/revisorSide');
+const storeRevisor = require('./controllers/storeRevisor');
+const alleRevisorerController = require('./controllers/alleRevisorer');
+const visMoedeController = require('./controllers/visMoede');
 
 
 
