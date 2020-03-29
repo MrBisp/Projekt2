@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/opretKunde.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body id="bodyOpret" class="bodyOpret">
+<div id="baggrund" class="navOpret">
+    <div class="nav">
+        <ul class="navbar">
+            <li class="navList"><a class="navLista" href="index.html">Kalender</a></li>
+            <li class="navList"><a class="navLista" href="opretRevisor.html">Opret revisor</a></li>
+            <li class="navList"><a class="navLista" href="Login.html">Revisor login</a></li>
+            <li class="navList"><a class="navLista" href="opretKunde.html">Opret Bruger</a></li>
+        </ul>
+    </div>
+    <div class="opretBruger" id="opretBrugerBoks">
+        <h1 class="opretBruger" id="opretBrugerOverskrift">Opret Bruger</h1>
+        <form name="opretBruger" id="opretBrugerForm" class="opretBruger">
+            <!-- de forskellige input laves, så der kan indtastes -->
+
+            <div class="opretBrugerinput" id="FornavnInput">
+                <br/> <input type="text" name="fornavn" id="fornavn" placeholder="Fornavn"><br/>
+            </div>
+            <span id="fejlFornavn" class="fejlbesked"></span><br/><br/>
+            <!-- nedenunder her, forberedes der til at der kan komme en fejlbesked efterfølgende gentages det hele-->
+
+            <div class="opretBrugerinput" id="EfternavnInput">
+                <br/> <input type="text" name="efternavn" id="efternavn" placeholder="Efternavn"><br/>
+            </div>
+            <span id="fejlEfternavn" class="fejlbesked"></span><br/><br/>
+
+            <div class="opretBrugerinput" id="EmailInput">
+                <br/> <input type="text" name="email" id="email" placeholder="Email"><br/>
+            </div>
+            <span id="fejlEmail" class="fejlbesked"></span><br/><br/>
+
+            <div class="opretBrugerinput" id="TlfInput">
+                <br/> <input type="number" name="tlf" id="tlf" placeholder="Tlf nr."><br/>
+            </div>
+            <span id="fejlTlf" class="fejlbesked"></span><br/><br/>
+
+            <div class="opretBrugerinput" id="BrugernavnInput">
+                <br/> <input type="text" name="username" id="username" placeholder="Brugernavn"><br/>
+            </div>
+            <span id="fejlBrugernavn" class="fejlbesked"></span><br/><br/>
+
+            <div class="opretBrugerinput" id="KodeordInput">
+                <br/> <input type="password" name="password" id="password" placeholder="Kodeord"><br/>
+            </div>
+            <span id="fejlKodeord" class="fejlbesked"></span><br/><br/>
+
+            <div class="opretBrugerinput" id="kundeTypeInput">
+                <!--Hvilken type kunde?<br/>-->
+                <select class="opretBrugerinput" name="kundeType" type="text" id="kundeType">
+                    <option value="IngenType" disabled="disabled" selected="selected">Hvilken type kunde?</option>
+                    <option value="privat">Privat Kunde</option>
+                    <option value="erhverv">Erhvervs Kunde</option>
+                    <option value="erhvervOgPrivat">Privat- og Erhvervs kunde</option>
+            </select>
+            </div>
+            <span id="fejlKundetype" class="fejlbesked"></span><br/><br/>
+
+
+            Ved at lave en bruger accepterer jeg gældende <a href="https://www.retsinformation.dk/forms/r0710.aspx?id=45902"> regler og vilkår</a> <br/><br/>
+            <!-- Knappen som skal sende information videre eller få brugeren til at indtaste korrekt information -->
+            <button type="submit"  id="opretBrugerSubmit">Opret Bruger</button><br/><br/>
+        </form>
+    </div>
+</div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/classes/User.js"></script>
+    <script src="../js/classes/Kunde.js"></script>
+    <script type="module" src="../js/opretKunde.js"></script>
+</body>
+</html>

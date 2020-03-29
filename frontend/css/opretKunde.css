@@ -1,0 +1,50 @@
+.bodyOpret {
+    font-family: 'Roboto', 'roboto', sans-serif;
+}
+
+.opretBruger {
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
+#opretBrugerOverskrift {
+    float: top;
+    font-size: 40px;
+    border-bottom: 4px solid black;
+    width: 50%;
+    margin-bottom: 8%;
+    margin-top: 10%;
+}
+
+.opretBrugerinput {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    padding-bottom: 2%;
+}
+
+
+.opretBrugerinput input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+    padding-top: 5%;
+    padding-left: 2%;
+    float: left;
+}
+
+
+#opretBrugerSubmit {
+    width: 100%;
+    border-radius: 2%;
+    background-color: white;
+    padding: 2%;
+    cursor: pointer;
+    border: 0.5px solid black;
+    font-size: 18px;
+    font: bold;
+}

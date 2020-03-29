@@ -1,3 +1,4 @@
+/*
 //Lavet af VR
 class Revisor {
     constructor(navn, møder = [], startdag, slutdag, email, tlf, brugernavn, kodeord){
@@ -60,4 +61,5 @@ class Revisor {
     }
 
 
-}
+//}
+*/

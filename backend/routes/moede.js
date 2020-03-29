@@ -82,6 +82,27 @@ router.post('/skat', async (req, res) => {
     }
 });
 
+router.get('/kunde/test:id', async (req, res) => {
+    try {
+        const moede = await Moede.find({kunde: req.params._id});
+        res.json(moede);
+    } catch (err) {
+        res.json({msg: 'Fejl: ' + err});
+    }
+});
+
+/*
+skatMoede.create({
+startTime: "10:00",
+endTime: "12:00",
+kunde: ObjectId("5e7ca555e03e521f504550c6"),
+revisor: ObjectId("5e7caf08a4b6c31ec0dd79e7"),
+kommentar: String,
+    tlfnr: Number,
+    mail: String,
+    type: String
+});*/
+
 module.exports = router;
 
 
