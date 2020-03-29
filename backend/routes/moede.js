@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-//Hent et møde fra en revisor med revisorid id
+//Hent møder fra en revisor med revisorid id
 router.get('/:id', async (req, res) => {
     console.log('get id');
     try {

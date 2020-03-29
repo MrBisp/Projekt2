@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const options = {discriminatorKey: 'user'};
 
+
 //Laver en Schema
 const userSchema = mongoose.Schema({
     username: String,
@@ -9,6 +10,9 @@ const userSchema = mongoose.Schema({
     navn: String,
     type: Number
 }, options);
+
+
+module.exports = mongoose.model('User', userSchema);
 
 //Til aflevering
 /*
@@ -45,7 +49,6 @@ const moedeSchema = mongoose.Schema({
 }, options);
 */
 
-module.exports = mongoose.model('User', userSchema);
 
 
 

@@ -1,4 +1,4 @@
-import * as kalender from './../modules/kalender.mjs';
+import * as kalender from '../modules/kalender.mjs';
 
 //Initaliserer revisorer
 let tempRevisorer = [];

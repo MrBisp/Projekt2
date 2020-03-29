@@ -47,9 +47,9 @@ router.post('/', async (req, res) => {
     }
 });
 
-//Tilføj et skattemøde
+//Tilføj en revisor
 router.post('/revisor', async (req, res) => {
-    const moede = new revisor({
+    const nyRevisor = new revisor({
         username: req.body.username,
         password: req.body.password,
         navn: req.body.navn,
@@ -61,7 +61,7 @@ router.post('/revisor', async (req, res) => {
 
     //Gem revisoren
     try {
-        const gemtRevisor = await moede.save();
+        const gemtRevisor = await nyRevisor.save();
         res.json(gemtRevisor)
     } catch (err) {
         res.json({msg: err});
