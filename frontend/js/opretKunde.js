@@ -1,5 +1,5 @@
 import * as utils from './modules/utils.mjs';
-import {validation} from './modules/burgerInputVal.mjs';
+
 
 $.ajax({
     url: "http://localhost:3000/user/hentBrugere",

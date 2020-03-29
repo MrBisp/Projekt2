@@ -16,7 +16,7 @@ class User {
 
     getInfo(){
         var text = this.navn + "\n";
-        for (i = 0; i < this.moeder.length; i++){
+        for (let i = 0; i < this.moeder.length; i++){
             text += this.moeder[i].getInfo() + "\n"
         }
         return text;
