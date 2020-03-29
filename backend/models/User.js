@@ -17,7 +17,7 @@ const User = mongoose.Schema({
 module.exports = mongoose.model('User', User);
 
 
-module.exports = mongoose.model('User', userSchema);
+//module.exports = mongoose.model('User', userSchema);
 
 //Til aflevering
 /*
