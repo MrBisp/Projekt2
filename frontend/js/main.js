@@ -56,17 +56,6 @@ document.addEventListener('click', function (e) {
         e.target.classList+= " aktiv";
     }
 });
- //Når der klikkes på 'Book møde' knappen
-/*document.getElementById('bookMødeSubmit').addEventListener('click', function(e){
-   e.preventDefault();
-   //Kilde: https://stackoverflow.com/a/1085810
-   var valgRevisorElement = document.getElementById('revisorOption');
-   var valgRevisor = valgRevisorElement.options[valgRevisorElement.selectedIndex].value;
-   var kundenavn = document.getElementById('kundenavn');
-   var kommentar = document.getElementById('kommentar');
-
-   //funktionen gemtilLS i validation.js benyttes også når der klikkes.
-});*/
 
 //Når mødelængden ændres
 document.getElementById('mødeOption').addEventListener('change', function(e){
@@ -74,22 +63,15 @@ document.getElementById('mødeOption').addEventListener('change', function(e){
 });
 
 
-//Lavet af MM
-
-//Opdaterer revisorer, så når der oprettes en ny revisorer, bliver den vist som en option
-/*for (var i = 0; i < revisorer.length; i++) {
-    console.log(revisorer[i]);
-    var nyRevisor = document.createElement("option");
-    nyRevisor.value = i;
-    nyRevisor.innerText = revisorer[i].getNavn();
-    document.getElementById("revisorOption").appendChild(nyRevisor);
-}*/
-
-//Opdaterer kalender alt efter hvilken revisor man trykker på
+//Opdaterer kalender alt efter hvilken revisor man vælger
 document.getElementById('revisorOption').addEventListener('change', function(e){
-    var revisorIndex = this.value;
-    kalender.setVisKalenderFor(revisorer.find(revisor => revisorIndex));
-    kalender.refresh();
+    var revisorId = this.value;
+    $.ajax({url: "http://localhost:3000/moede/" + revisorId, success: function(resultMoeder){
+        let revisor = revisorer.find(revisor => revisor._id == revisorId);
+        revisor.setMøder(utils.formaterMoeder(resultMoeder));
+        kalender.setVisKalenderFor(revisor);
+        kalender.refresh();
+    }});
 });
 
 //submit
