@@ -25,7 +25,7 @@ export function formaterMoeder (m) {
             m[i].startTime = new Date(m[i].startTime);
             m[i].endTime = new Date(m[i].endTime);
         }
-        $.extend(moede, m[i])
+        $.extend(moede, m[i]);
 
         moeder.push(moede);
     }
@@ -34,13 +34,19 @@ export function formaterMoeder (m) {
 
 export function formaterKunder (data) {
     let alleKunder = [];
-    for(let i=0; i<data.kunder.length; i++){
+    for(let i=0; i<data.length; i++){
+
+        //Vi starter med at formatere møderne  for den enkelte kunde
+        let moeder = formaterMoeder(data[i].moeder);
+
+        data[i].moeder = moeder;
 
         //Inspiration: https://stackoverflow.com/a/4743038
         var k = new Kunde();
 
         //Bruger jquery extend så der kan bruges et objekt som 'constructor'
-        $.extend(k, data.kunder[i]);
+        $.extend(k, data[i]);
+
         alleKunder.push(k);
     }
     return alleKunder;

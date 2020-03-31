@@ -3,10 +3,9 @@
 // https://eloquentjavascript.net/Eloquent_JavaScript.pdf p.102
 
 class Møde {
-    constructor (start, slut, id, kommentar, kunde, revisor, tlfnr, mail){
+    constructor (start, slut, kommentar, kunde, revisor, tlfnr, mail){
         this.startTime = start;
         this.endTime = slut;
-        this.ID = id;
         this.kunde = kunde;
         this.revisor = revisor;
         this.kommentar = kommentar;
@@ -57,9 +56,6 @@ class Møde {
     getKommentar() {
         return this.kommentar;
     }
-    getID(){
-        return this.ID;
-    }
 
     getTlfnr() {
         return this.tlfnr;
@@ -77,20 +73,20 @@ class Møde {
 // https://eloquentjavascript.net/Eloquent_JavaScript.pdf p.112
 
 class langMøde extends Møde {
-    constructor(start, id, kommentar, kundenavn, tlfnr, mail) {
+    constructor(start, kommentar, kundenavn, tlfnr, mail) {
         //langMøde varer 1 time
 
         var slut = new Date(start.getTime() + 60 * 60 * 1000);
-        super(start, slut, id, kommentar, kundenavn, tlfnr, mail);
+        super(start, slut, kommentar, kundenavn, tlfnr, mail);
     }
 }
 
 class kortMøde extends Møde {
-    constructor(start, id, kommentar, kundenavn, tlfnr, mail) {
+    constructor(start, kommentar, kundenavn, tlfnr, mail) {
         //kort møde varer 30 minutter eller 1/2 time
 
         var slut = new Date(start.getTime() + 30 * 60 * 1000);
-        super(start, slut, id, kommentar, kundenavn, tlfnr, mail);
+        super(start, slut, kommentar, kundenavn, tlfnr, mail);
 
     }
 }

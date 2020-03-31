@@ -72,37 +72,13 @@ router.post('/revisor', async (req, res) => {
 });
 
 //Henter alle brugere af typen 2 (kunde) i DB
-router.get('/hentBrugere', (req, res) => {
-        User.find({type: 2})
-            .exec()
-            .then((docs) => {
-                const response = {
-                    count: docs.length,
-                    kunder: docs.map((doc) => {
-                        return {
-                            _id: doc._id,
-                            username: doc.username,
-                            password: doc.password,
-                            email: doc.email,
-                            navn: doc.navn,
-                            tlf: doc.tlf,
-                            type: doc.type,
-                            privatKunde: doc.privatKunde,
-                            erhvervsKunde: doc.erhvervsKunde,
-                            //Kan bruges til at navigere rundt i eks. postman (Henter de/det møde som kunden er knyttet til)
-                            moede: {
-                                type: "GET",
-                                url: "http://localhost:3000/moede/kunde/test" + doc._id
-                            }
-                        }
-                    })
-                };
-                res.json(response);
-                return response
-                })
-            .catch((err)=>{
-                res.json({msg: 'Fejl: ' + err});
-            });
+router.get('/hentBrugere', async (req, res) => {
+    try {
+        const response = await User.find({}).populate("moeder");
+        res.json(response);
+    } catch (err) {
+        res.json(err);
+    }
 });
 
 router.post("/opretBruger", async (req, res) => {
