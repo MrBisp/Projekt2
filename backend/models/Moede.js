@@ -17,7 +17,8 @@ const moedeSchema = mongoose.Schema({
     kommentar: String,
     tlfnr: Number,
     mail: String,
-    type: String
+    type: String,
+    status: String
 }, options);
 
 module.exports = mongoose.model('Moede', moedeSchema);
