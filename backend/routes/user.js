@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-const mongoose = require('mongoose');
-const options = {discriminatorKey: 'user'};
-
 // Sub classes
 const Revisor = require("../models/Revisor");
 const Kunde = require("../models/Kunde");
@@ -81,7 +78,7 @@ router.get('/hentBrugere', async (req, res) => {
     }
 });
 
-router.post("/opretBruger", async (req, res) => {
+router.post("/opretKunde", async (req, res) => {
     let privatKunde = false;
     let erhvervsKunde = false;
 
@@ -126,8 +123,62 @@ router.post("/opretBruger", async (req, res) => {
         const gemtKunde = await kunde.save();
         res.json(gemtKunde);
    } catch (err) {
-       console.log("Fejl: " + err);
+       res.json({msg: "Fejl: " + err});
    }
+});
+
+router.post("/opretRevisor", async (req,res) => {
+  let startTime = req.body.startTime;
+  let slutTime = req.body.slutTime;
+  let startMinut = req.body.startMinutter;
+  let slutMinut = req.body.slutMinutter;
+  let startTid;
+  let slutTid;
+
+  console.log("1: " + req.body.startMinutter);
+
+  if(startMinut == 30) {
+      startTime += 5;
+      //Af en eller anden mærkelig grund, så når man ligger += .5 til et helt tal, så bliver det x0,5 istedet for x,5 og derfor gøres det på denne måde
+      startTid = startTime/10;
+  } else {
+      startTid = startTime
+  }
+
+    if(slutMinut == 30) {
+        slutTime += 5;
+        //Af en eller anden mærkelig grund, så når man ligger += .5 til et helt tal, så bliver det x0,5 istedet for x,5 og derfor gøres det på denne måde
+        slutTid = slutTime/10;
+    } else {
+        slutTid = slutTime;
+    }
+
+    console.log("4: " + startMinut);
+    console.log("5: " + startTime);
+    console.log("6: " + startTid);
+    console.log("7: " + slutTid);
+
+    let revisor = new Revisor({
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        navn: req.body.fornavn + " " + req.body.efternavn,
+        tlf: req.body.tlf,
+        type: 1,
+        startDag: startTid,
+        slutDag: slutTid
+    });
+
+    console.log(revisor);
+
+    try {
+        let gemtRevisor = await revisor.save();
+        res.json(gemtRevisor);
+    } catch (err) {
+        res.json({msg: err})
+    }
+
+
 });
 
 

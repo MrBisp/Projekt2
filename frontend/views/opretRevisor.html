@@ -21,40 +21,40 @@
             <form name="opretRevisor" id="opretRevisorForm" class="opretRevisor">
                 <!-- de forskellige input laves, så der kan indtastes -->
                 <div class="opretRevisorinput">
-                <br/> <input type="text" name="Fornavn" id="Fornavn" placeholder="Fornavn"><br/>
+                <br/> <input type="text" name="fornavn" id="Fornavn" placeholder="Fornavn"><br/>
                 </div>
                 <!-- nedenunder her, forberedes der til at der kan komme en fejlbesked efterfølgende gentages det hele-->
                 <span id="fejlFornavn" class="fejlbesked"></span><br/><br/>
 
                 <div class="opretRevisorinput">
-                <br/> <input type="text" name="Efternavn" id="Efternavn" placeholder="Efternavn"><br/>
+                <br/> <input type="text" name="efternavn" id="Efternavn" placeholder="Efternavn"><br/>
                 </div>
                 <span id="fejlEfternavn" class="fejlbesked"></span><br/><br/>
 
                 <div class="opretRevisorinput">
-                <br/> <input type="text" name="Email" id="Email" placeholder="Email"><br/>
+                <br/> <input type="text" name="email" id="Email" placeholder="Email"><br/>
                 </div>
                 <span id="fejlEmail" class="fejlbesked"></span><br/><br/>
 
                 <div class="opretRevisorinput">
-                <br/> <input type="number" name="Tlf" id="Tlf" placeholder="Tlf nr."><br/>
+                <br/> <input type="number" name="tlf" id="Tlf" placeholder="Tlf nr."><br/>
                 </div>
                 <span id="fejlTlf" class="fejlbesked"></span><br/><br/>
 
                 <div class="inputTid">
                 Kundemøder i tidsrummet <br/>
-                <input type="number" name="Time" value="08" min="1" max="24" id="startTime"> : <input type="number" name="Minutter" value="00" min="00" max="30" step="30" id="startMinut"> til
-                <input type="number" name="Time" value="14" min="1" max="24" id="slutTime"> : <input type="number" name="Minutter" value="00" min="00" max="30" step="30" id="slutMinut"><br/>
+                <input type="number" name="startTime" value="8" min="1" max="24" id="startTime"> : <input type="number" name="startMinutter" value="00" min="00" max="30" step="30" id="startMinut"> til
+                <input type="number" name="slutTime" value="14" min="1" max="24" id="slutTime"> : <input type="number" name="slutMinutter" value="00" min="00" max="30" step="30" id="slutMinut"><br/>
                 </div>
                     <span id="fejlTid" class="fejlbesked"></span><br/><br/>
 
                 <div class="opretRevisorinput">
-                <br/> <input type="text" name="Brugernavn" id="Brugernavn" placeholder="Brugernavn"><br/>
+                <br/> <input type="text" name="username" id="username" placeholder="Brugernavn"><br/>
                 </div>
                 <span id="fejlBrugernavn" class="fejlbesked"></span><br/><br/>
 
                 <div class="opretRevisorinput">
-                <br/> <input type="password" name="Kodeord" id="Kodeord" placeholder="Kodeord"><br/>
+                <br/> <input type="password" name="password" id="Kodeord" placeholder="Kodeord"><br/>
                 </div>
                 <span id="fejlKodeord" class="fejlbesked"></span><br/><br/>
 
@@ -66,21 +66,11 @@
 
     </div>
 </div>
-<script src="../js/classes/User.js"></script>
-<script src="../js/classes/Kalender.js"></script>
-<script src="../js/classes/Revisorhus.js"></script>
-<script src="../js/classes/Revisor.js"></script>
-<script src="../js/classes/Møde.js"></script>
-<script src="../js/databehandling.js"></script>
-<script src="../js/classes/OpretRevisor.js"></script>
 
-<!-- for at påkalde funktionen til knappen submit. Der er tilføjet en preventDefault, fordi siden ikke skal refreshe,
-hvis man har tastet forkert eller har glemt noget. KontrolInfo ligger i OpretRevisor.js -->
-<script>
-    document.getElementById("opretRevisorSubmit").addEventListener("click", function(e){
-        e.preventDefault();
-        kontrolInfo();
-    });
-</script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/classes/User.js"></script>
+<script src="../js/classes/Kunde.js"></script>
+<script src="../js/classes/Revisor.js"></script>
+<script type="module" src="../js/opretBruger.js"></script>
 </body>
 </html>

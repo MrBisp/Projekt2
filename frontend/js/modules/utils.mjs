@@ -5,6 +5,11 @@ export function formaterRevisor(revisorer) {
     let alleRevisorer = [];
     for(let i=0; i<revisorer.length; i++){
 
+        //Vi starter med at formatere møderne  for den enkelte kunde
+        let moeder = formaterMoeder(revisorer[i].moeder);
+
+        revisorer[i].moeder = moeder;
+
         //Inspiration: https://stackoverflow.com/a/4743038
         var r = new Revisor();
 
@@ -50,4 +55,35 @@ export function formaterKunder (data) {
         alleKunder.push(k);
     }
     return alleKunder;
+}
+
+export function formaterKundeObj (data) {
+    //Vi starter med at formatere møderne  for den enkelte kunde
+    let moeder = formaterMoeder(data.moeder);
+
+    data.moeder = moeder;
+
+    //Inspiration: https://stackoverflow.com/a/4743038
+    var k = new Kunde();
+
+    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
+    $.extend(k, data);
+
+    return k
+}
+
+export function formaterRevisorObj (data) {
+
+    let moeder = formaterMoeder(data.moeder);
+
+    data.moeder = moeder;
+
+    //Inspiration: https://stackoverflow.com/a/4743038
+    var r = new Revisor();
+
+    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
+    $.extend(r, data);
+
+    return r
+
 }

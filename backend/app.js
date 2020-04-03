@@ -23,13 +23,17 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+//Er det her ikke brugt til udførelse af bogens materiale?
+//app.use( '/posts/store', validateMiddleware);
 
-app.use( '/posts/store', validateMiddleware);
 
 //Import routes (api)
 app.use('/revisor', require('./routes/revisor'));
 app.use('/moede', require('./routes/moede'));
 app.use('/user', require('./routes/user'));
+app.use('/login', require('./routes/login'));
+
+
 
 
 //Connect to DB

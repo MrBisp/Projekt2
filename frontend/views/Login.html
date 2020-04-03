@@ -19,29 +19,31 @@
     </div>
 
     <div id="loginContainer">
-        <form id="loginForm" name="Revisor login" onsubmit="checkLogin()" method="get">
+        <form id="loginForm" name="loginForm">
             <h2>Login</h2>
             <span id="loginMessage" class="fejlbesked"></span><br><br>
             <div class="tekstboks">
-            <input type="text" id="brugernavn" value="" placeholder=" Brugernavn"/><br/>
+            <input type="text" id="brugernavn" value="" placeholder=" Brugernavn" name="username"/><br/>
             </div>
             <div class="tekstboks">
-            <input type="password" id="password" value="" placeholder=" Password"/><br/>
+            <input type="password" id="password" value="" placeholder=" Password" name="password"/><br/>
             </div><br>
             <br/>
             <button id="submit" class="Login" style="cursor: pointer">Log ind</button><br><br>
-        <!-- opretter her en link til opret bruger side som bliver stylet som en knap -->
-            <a href="opretRevisor.html" class="opretRevisorKnap">Opret</a>
+        <!-- opretter her en link til opret bruger sider som bliver stylet som en knap -->
+           <a href="opretRevisor.html" class="opretRevisorKnap">Opret Revisor</a>
+            <a href="opretKunde.html" class="opretRevisorKnap">Opret Kunde</a>
 
-    </form>
+        </form>
 </div>
-
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/login.js"></script>
     <script src="../js/classes/User.js"></script>
     <script src="../js/classes/Kalender.js"></script>
     <script src="../js/classes/Revisorhus.js"></script>
     <script src="../js/classes/Revisor.js"></script>
     <script src="../js/classes/Møde.js"></script>
-    <script src="../js/databehandling.js"></script>
+    <!--<script src="../js/databehandling.js"></script>-->
     <script src="../js/login.js"></script>
 
 
