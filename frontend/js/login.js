@@ -15,6 +15,7 @@ $("#loginForm").submit((e)=> {
                 alert(result.msg);
                 console.log(result);
             } else if (result.success === true) {
+                localStorage.setItem('token',result.token);
                 //console.log(result);
                 if(result.user[0].type === 1) {
                     //Revisor

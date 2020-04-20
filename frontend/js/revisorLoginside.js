@@ -2,8 +2,26 @@
 
 //roid = revisorobjekt id, på revisoreren som er logget ind
 //ro = revisorobjekt på revisoren som er logget ind
-//var roid = sessionStorage.getItem('loggedInRevisorId');
-//var ro = new Array( JSON.parse (sessionStorage.getItem('loggedInRevisorObject')) );
+
+import * as utils from "./modules/utils";
+import * as kalender from "./modules/kalender";
+
+let møder;
+
+var token = localStorage.getItem('token');
+$.ajax({url: 'localhost:3000/userByToken/' + token, success: function(result) {
+        let id = result.user._id;
+        let revisorer = utils.formaterRevisor(result);
+
+        $.ajax({url: "http://localhost:3000/moede/" + id, success: function(resultMoeder){
+                møder = utils.formaterMoeder(resultMoeder);
+                //Sorterer møder efter dato
+                møder.sort(sorterEfterMødeDato);
+            }});
+    }});
+
+var roid = sessionStorage.getItem('loggedInRevisorId');
+var ro = new Array( JSON.parse (sessionStorage.getItem('loggedInRevisorObject')) );
 
 //if (roid == null || ro == null) {
     //location.href = "Login.html";
@@ -20,12 +38,6 @@ document.getElementById('revisorNavn').innerHTML = ro.getNavn();
 var år;
 var måned;
 var dag;
-
-//Henter de møder tilknyttet til den revisor der er logget ind
-var møder = ro.getMøder();
-
-//Sorterer møder efter dato
-møder.sort(sorterEfterMødeDato);
 
 //Laver en variabel som sættes til dagens dato
 var idag = new Date ();

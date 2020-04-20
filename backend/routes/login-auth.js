@@ -16,8 +16,8 @@ router.post('/', async (req, res) => {
         res.json({msg: "Brugeren eksisterer ikke", success: false});
     } else if (user.length > 0 && user[0].password == req.body.password){
 
-        const accessToken = jwt.sign({u: user[0]}, accessTokenSecret);
-        res.json({accessToken});
+        const accessToken = jwt.sign({u: user[0].populate('moeder')}, accessTokenSecret);
+        res.json({msg: "korrekt", success: true, token: accessToken});
 
     } else if (user.length > 0 && user[0].password !== req.body.password) {
         res.json({msg: "Der findes en bruger med brugernavnet, men password er ikke korrekt", success: false, user: user});

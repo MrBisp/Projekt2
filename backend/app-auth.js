@@ -57,6 +57,15 @@ app.get('/books', authenticateJWT, (req,res) => {
     }
 });
 
+app.get('/userByToken/:token', (req,res) => {
+    jwt.verify(req.params.token, accessTokenSecret, (err, user) => {
+        if (err) {
+            return res.sendStatus(403);
+        }
+        res.json({'user': user.u});
+    });
+});
+
 
 
 app.use(function(req, res, next) {
