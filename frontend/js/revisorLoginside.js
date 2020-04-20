@@ -115,21 +115,17 @@ function hentMøder() {
 //Lavet af FH
 //Sletter et møde med et specifikt ID
 function sletMøde(id) {
+
+    let con = confirm ("Er du sikker på, at du vil slette mødet?");
+    if (!con) return;
     //Looper gennem alle møder, og finder den som har det ID som vi ønsker at slette
     for (var i = 0; i < ro.getMøder().length; i++) {
         if (ro.getMøder() [i].getID() == id) {
             console.log(ro.getMøder() [i]);
 
             //Fjern mødet fra arrayen ved splice-funktionen
-            var møderArray = ro.getMøder();
-            møderArray.splice(i, 1);
-            console.log(møderArray);
-
-            //Hent først localstorage dataen ned
-            var grh = getGemtRevisorHus();
-
-            //Redigerer herefter dataen
-            grh.getRevisorer()[roid].setMøder(møderArray);
+            møder.splice(i, 1);
+            console.log(møder);
 
             //Lægger herefter den nye data op i localstorage og sessionstorage.
             localStorage.setItem('gemtRevisorhus', JSON.stringify(grh));
@@ -139,9 +135,7 @@ function sletMøde(id) {
                 type: 'DELETE',
                 url: "http://localhost:3000/moede/" + id  })
                 .done(function(resultMoeder) {
-                    $('#json').html(JSON.stringify(resultMoeder));
-                    var resultHtml = "Deleted";
-                    $('#result').html(resultHtml);
+                alert ("Mødet er blevet slettet")
                 });
 
             //refresher møderne på den nuværende dag
