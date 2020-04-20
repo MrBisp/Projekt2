@@ -18,12 +18,13 @@ $("#loginForm").submit((e)=> {
                 localStorage.setItem('token',result.token);
                 //console.log(result);
                 if(result.user[0].type === 1) {
-                    //Revisor
+                    //Revior
                     window.location.replace("revisorLoginside.html");
                 } else if (result.user[0].type === 2) {
                     //kunde
+                    window.location.replace("kundeLoginside.html")
                 } else {
-                    alert("noget gik galt. Brugeren med username: " + result.user[0].username + " har ikke angivet nogen brugertype. Kontakt administrator for at få problemet løst." )
+                    alert("noget gik galt. Kontakt administrator for at få problemet løst.")
                 }
             } else {
                 alert("Noget gik galt, prøv venligst igen...")
