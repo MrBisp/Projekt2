@@ -86,6 +86,8 @@ $("#opretMødeForm").submit(function (e) {
 
     console.log(JSON.stringify(inputData));
 
+
+
     //Marza: Eksempel på avanceret api kald
     if(2+2===1 || true) {
         $.ajax({
