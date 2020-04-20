@@ -136,3 +136,14 @@ POSTMAN:
     "revisor": "5e6c8960b2e0381700de2537"
 }
  */
+
+
+//Fjerner møde
+router.delete('/:id', async (req, res) => {
+    try {
+        const sletmoede = await moede.remove({_id: req.params.id}
+        res.json(sletmoede);
+    } catch (e) {
+        res.json({msg: 'fejl ' + e});
+    }
+});

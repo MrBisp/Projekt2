@@ -30,3 +30,4 @@ TODO:
 1. Klasser på API niveau
 2. MVC - hvad er V i dette tilfælde?
 3. Der står at der skal laves AJAX kald - skal dette gøres med jQuery eller skal der laves xhttp?
+

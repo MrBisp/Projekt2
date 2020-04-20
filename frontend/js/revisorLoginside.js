@@ -123,6 +123,15 @@ function sletMøde(id) {
             localStorage.setItem('gemtRevisorhus', JSON.stringify(grh));
             sessionStorage.setItem('loggedInRevisorObject', JSON.stringify(grh.getRevisorer()[roid]));
 
+            $.ajax({
+                type: 'DELETE',
+                url: "http://localhost:3000/moede/" + id  })
+                .done(function(resultMoeder) {
+                    $('#json').html(JSON.stringify(resultMoeder));
+                    var resultHtml = "Deleted";
+                    $('#result').html(resultHtml);
+                });
+
             //refresher møderne på den nuværende dag
             hentMøder();
 
@@ -132,6 +141,7 @@ function sletMøde(id) {
 
     }
 }
+
 
 //Lavet af VR
 //Log af ved at rydde sessionstorage
