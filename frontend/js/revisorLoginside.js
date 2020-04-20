@@ -2,16 +2,16 @@
 
 //roid = revisorobjekt id, på revisoreren som er logget ind
 //ro = revisorobjekt på revisoren som er logget ind
-var roid = sessionStorage.getItem('loggedInRevisorId');
-var ro = new Array( JSON.parse (sessionStorage.getItem('loggedInRevisorObject')) );
+//var roid = sessionStorage.getItem('loggedInRevisorId');
+//var ro = new Array( JSON.parse (sessionStorage.getItem('loggedInRevisorObject')) );
 
-if (roid == null || ro == null) {
-    location.href = "Login.html";
-}
+//if (roid == null || ro == null) {
+    //location.href = "Login.html";
+//}
 
 ro = formaterRevisor(ro)[0];
 
-
+console.log(ro);
 //lavet af MM
 //Henter og indsætter info om hvilken revisor der er logget ind
 document.getElementById('revisorNavn').innerHTML = ro.getNavn();
