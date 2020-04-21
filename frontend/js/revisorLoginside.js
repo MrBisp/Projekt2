@@ -167,7 +167,7 @@ function hentMøderRevisor() {
             var id = ro.moeder[i]._id;
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
-            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>" + "<br />"
+            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+ 
             "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
             unapprovedmøde.classList = "enkelteUnapprovedMøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
@@ -204,7 +204,7 @@ function hentMøderRevisor() {
 
             //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
             var møde = document.createElement("div");
-            møde.innerHTML = "Kundenavn: " + kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
+            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
             møde.classList = "enkelteMøde";
             mødeoversigt.appendChild(møde);
         }

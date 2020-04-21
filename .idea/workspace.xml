@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/slet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/slet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +20,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="394575bd-a41f-4c96-9f41-105fdfc26a0a" />
   </component>
   <component name="ProjectId" id="1XkaywRQUojSmfg3ifgPmdjhyPi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -85,21 +81,7 @@
       <option name="project" value="LOCAL" />
       <updated>1587478520904</updated>
     </task>
-    <task id="LOCAL-00005" summary="Gjort så man kan laver møder med den nye Model - hurtigt fix">
-      <created>1587479022775</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1587479022775</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Gjort så man kan laver møder med den nye Model - hurtigt fix">
-      <created>1587479119577</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1587479119577</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,8 +105,7 @@
     <MESSAGE value="Debugging af login funktoinalitet sammen med JWT" />
     <MESSAGE value="Formater kunde- og revisor objekter inkl. formatering af møder" />
     <MESSAGE value="Gjort så man kan laver møder med den nye Model" />
-    <MESSAGE value="Gjort så man kan laver møder med den nye Model - hurtigt fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gjort så man kan laver møder med den nye Model - hurtigt fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gjort så man kan laver møder med den nye Model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
