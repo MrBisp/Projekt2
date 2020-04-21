@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3c3551c-8e16-4851-bc26-13a0b41ce53a" name="Default Changelist" comment="Login og 'minside' for Revisor">
+    <list default="true" id="f3c3551c-8e16-4851-bc26-13a0b41ce53a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587467286887</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Formater kunde- og revisor objekter inkl. formatering af møder">
+      <created>1587476777164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587476777164</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,7 +101,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integration af JWT eksempel" />
     <MESSAGE value="Debugging af login funktoinalitet sammen med JWT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debugging af login funktoinalitet sammen med JWT" />
+    <MESSAGE value="Formater kunde- og revisor objekter inkl. formatering af møder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formater kunde- og revisor objekter inkl. formatering af møder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -18,16 +18,8 @@ $("#loginForm").submit((e)=> {
             } else if (result.success === true) {
                 localStorage.setItem('token',result.token);
                 console.log(result);
-                //Endnu et Ajax kald eller hvad?
-                if(result.user[0].type === 1) {
-                    //Revior
-                    window.location.replace("revisorLoginside.html");
-                } else if (result.user[0].type === 2) {
-                    //kunde
-                    window.location.replace("kundeLoginside.html")
-                } else {
-                    alert("noget gik galt. Kontakt administrator for at få problemet løst.")
-                }
+                //Der tages højde for om hvorvidt brugeren er en kunde eller revisor i 'revisorLoginSide.js'
+                window.location.replace("revisorLoginside.html");
             } else {
                 alert("Noget gik galt, prøv venligst igen...")
             }

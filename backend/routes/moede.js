@@ -147,3 +147,13 @@ router.delete('/:id', async (req, res) => {
         res.json({msg: 'fejl ' + e});
     }
 });
+
+
+//Ændrer i møde
+router.put('/approve/:id', async (req, res) => {
+   try {
+       await Moede.update({})
+   } catch (e) {
+       res.json({mag:"fejl: " + e})
+   }
+});

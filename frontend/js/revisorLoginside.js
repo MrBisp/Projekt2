@@ -27,7 +27,7 @@ $.ajax({url: 'http://localhost:3000/userByToken/' + token,
                     createPage();
                 } else if (ro.type === 2){
                     //Kunde
-                    ro = utils.formaterKundeObj(result.user[0]);
+                    ro = utils.formaterKundeObj(ro);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
                     createPage();
@@ -68,16 +68,16 @@ function createPage () {
         document.getElementById('år').addEventListener('change', hentMøderRevisor);
         document.getElementById('måned').addEventListener('change', hentMøderRevisor);
         document.getElementById('dag').addEventListener('change', hentMøderRevisor);
-
-        hentMøderRevisor();
+        console.log("Revisor");
+       // hentMøderRevisor();
     } else if (ro.type === 2) {
         //Kunde
         //Når man har valgt en dato i select, så skal den run funktionen hentMøder()
         document.getElementById('år').addEventListener('change', hentMøderRevisor);
         document.getElementById('måned').addEventListener('change', hentMøderRevisor);
         document.getElementById('dag').addEventListener('change', hentMøderRevisor);
-
-        hentMøderKunde();
+        console.log("Kunde");
+       // hentMøderKunde();
     }
 }
 
@@ -228,4 +228,8 @@ function sorterEfterMødeDato(a, b){
         r = -1;
     }
     return r;
+}
+
+function approveMoede (moedeId) {
+
 }
