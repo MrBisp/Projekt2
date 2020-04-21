@@ -77,7 +77,7 @@ function hentMøder() {
     år = document.getElementById("år").value;
     måned = document.getElementById("måned").value;
     dag = document.getElementById("dag").value;
-
+    
 
     var valgtDato = new Date (år, måned, dag);
     var erDerMøder = false;
