@@ -71,7 +71,14 @@ h2{
 #mødeoversigt{
     font: 16px Arial;
     float: right;
-    width: 70%;
+    width: 35%;
+    box-sizing: border-box;
+}
+
+#unapprovedmoeder{
+    font: 16px Arial;
+    float: right;
+    width: 35%;
     box-sizing: border-box;
 }
 

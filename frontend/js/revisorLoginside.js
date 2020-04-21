@@ -149,17 +149,28 @@ function hentMøderRevisor() {
     var valgtDato = new Date (år, måned, dag);
     var erDerMøder = false;
 
-    for (var i=0; i<ro.moeder.length; i++){
+    for (var i=0; i<ro.moeder.length; i++) {
         console.log(ro.moeder[i]);
         //Skaber variabler til mødets tider og dato
         var startTid = ro.moeder[i].getStartTid();
         var slutTid = ro.moeder[i].getSlutTid();
-        var mødeDato = new Date (startTid.getFullYear(), startTid.getMonth(), startTid.getDate());
+        var mødeDato = new Date(startTid.getFullYear(), startTid.getMonth(), startTid.getDate());
 
 
-        //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
-        if (valgtDato.getFullYear() == mødeDato.getFullYear() &&
-        valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
+        if (!ro.moeder[i].approved) {
+            var unapprovedmoeder = document.getElementById("unapprovedmoeder");
+
+            //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
+            var unapprovedmøde = document.createElement("div");
+            unapprovedmøde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' onClick='godkend'>Godkend</button>" + "<br />"
+            "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
+            unapprovedmøde.classList = "enkelteUnapprovedMøde";
+            unapprovedmoeder.appendChild(unapprovedmøde);
+        }
+        if else {
+            //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
+            (valgtDato.getFullYear() == mødeDato.getFullYear() &&
+            valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
             var kundenavn = ro.moeder[i].getKundenavn();
             var kommentar = ro.moeder[i].getKommentar();
             var mail = ro.moeder[i].getMail();
@@ -180,18 +191,19 @@ function hentMøderRevisor() {
              */
 
             //Gør mødestart/slut læseligt
-            startTid = startTid.toLocaleTimeString().substring(0,5);
-            slutTid = slutTid.toLocaleTimeString().substring(0,5);
+            startTid = startTid.toLocaleTimeString().substring(0, 5);
+            slutTid = slutTid.toLocaleTimeString().substring(0, 5);
 
             //Laver en variabel for div'en "mødeoversigt
             var mødeoversigt = document.getElementById("mødeoversigt");
 
             //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
             var møde = document.createElement("div");
-            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='"+id+"' onClick='sletmoede(this)'>Slet Møde</button>";
+            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
             møde.classList = "enkelteMøde";
             mødeoversigt.appendChild(møde);
         }
+    }
     }
 
     if(!erDerMøder) document.getElementById("mødeoversigt").innerHTML = 'Der er ingen møder denne dag :)';
