@@ -63,7 +63,7 @@ export function formaterKunder (data) {
 export function formaterKundeObj (data) {
     //Vi starter med at formatere møderne  for den enkelte kunde
     let moeder = formaterMoederKunde(data.moeder);
-    //TODO hh
+
     data.moeder = moeder;
 
     //Inspiration: https://stackoverflow.com/a/4743038
