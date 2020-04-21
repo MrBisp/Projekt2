@@ -153,10 +153,13 @@ router.delete('/:id', async (req, res) => {
 
 //Ændrer i møde
 router.put('/approve/:id', async (req, res) => {
-   try {
-       let moede = await Moede.updateOne({_id: req.params.id}, {approved: true});
-       res.json({newMoede: moede});
+    let moede = await Moede.find({_id: req.params.id});
+    console.log(moede);
+    moede.set({approved: true});
+    let moedeGemt = await moede.save();
+    try {
+       res.json({newMoede: moedeGemt});
    } catch (e) {
-       res.json({mag:"fejl: " + e})
+       res.json({mag:"fejl: " + e});
    }
 });

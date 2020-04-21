@@ -18,10 +18,12 @@ function sletmoede(e) {
 
 function approveMoede (moedeId) {
     var id = moedeId.getAttribute('data-id');
+    console.log(id);
     $.ajax({url: "http://localhost:3000/moede/approve/" + id,
         type: "PUT",
         success: (result) => {
             console.log(result);
+            //location.reload();
         }
     });
 }
