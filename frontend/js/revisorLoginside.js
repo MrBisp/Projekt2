@@ -26,7 +26,7 @@ $.ajax({url: 'http://localhost:3000/userByToken/' + token,
                     ro.moeder.sort(sorterEfterMødeDato);
                     createPage();
                 } else if (ro.type === 2){
-                    //Revisor
+                    //Kunde
                     ro = utils.formaterKundeObj(result.user[0]);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
@@ -62,14 +62,25 @@ function createPage () {
     document.getElementById('måned').value = idag.getMonth();
     document.getElementById('dag').value = idag.getDate();
 
+    if (ro.type === 1) {
+        //Revisor
 //Når man har valgt en dato i select, så skal den run funktionen hentMøder()
-    document.getElementById('år').addEventListener('change', hentMøder);
-    document.getElementById('måned').addEventListener('change', hentMøder);
-    document.getElementById('dag').addEventListener('change', hentMøder);
+        document.getElementById('år').addEventListener('change', hentMøderRevisor);
+        document.getElementById('måned').addEventListener('change', hentMøderRevisor);
+        document.getElementById('dag').addEventListener('change', hentMøderRevisor);
 
+        hentMøderRevisor();
+    } else if (ro.type === 2) {
+        //Kunde
+        //Når man har valgt en dato i select, så skal den run funktionen hentMøder()
+        document.getElementById('år').addEventListener('change', hentMøderRevisor);
+        document.getElementById('måned').addEventListener('change', hentMøderRevisor);
+        document.getElementById('dag').addEventListener('change', hentMøderRevisor);
 
-    hentMøder();
+        hentMøderKunde();
+    }
 }
+
 function hentMøderKunde() {
     document.getElementById("mødeoversigt").innerHTML = "";
     år = document.getElementById("år").value;
