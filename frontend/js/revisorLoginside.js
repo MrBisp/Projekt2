@@ -169,7 +169,7 @@ function hentMøderRevisor() {
             var unapprovedmøde = document.createElement("div");
             unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
             "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
-            unapprovedmøde.classList = "enkelteUnapprovedMøde";
+            unapprovedmøde.classList = "unapprovedmøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
         }
         else if
