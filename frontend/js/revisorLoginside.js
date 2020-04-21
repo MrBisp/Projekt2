@@ -109,7 +109,6 @@ function hentMøderKunde() {
             var startTid = ro.moeder[i].getStartTid();
             var slutTid = ro.moeder[i].getSlutTid();
             var id = ro.moeder[i]._id;
-            var id1 = "'" + id + "'";
             console.log(id);
             erDerMøder = true;
             /*
