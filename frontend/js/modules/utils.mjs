@@ -21,7 +21,7 @@ export function formaterRevisor(revisorer) {
 }
 
 //Tager et objekt som argument og returnerer det efter det er instansieret i Møde-klassen
-export function formaterMoeder (m) {
+export function formaterMoederRevisor (m) {
     //Inspiration: https://stackoverflow.com/a/4743044
     let moeder = [];
     for (let i=0; i<m.length; i++){
@@ -33,6 +33,9 @@ export function formaterMoeder (m) {
         $.extend(moede, m[i]);
 
         moeder.push(moede);
+
+        m.kunde = formaterKundeObj2(m.kunde);
+
     }
     return moeder;
 }
@@ -59,9 +62,20 @@ export function formaterKunder (data) {
 
 export function formaterKundeObj (data) {
     //Vi starter med at formatere møderne  for den enkelte kunde
-    let moeder = formaterMoeder(data.moeder);
-
+    let moeder = formaterMoederKunde(data.moeder);
+    //TODO hh
     data.moeder = moeder;
+
+    //Inspiration: https://stackoverflow.com/a/4743038
+    var k = new Kunde();
+
+    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
+    $.extend(k, data);
+
+    return k
+}
+
+function formaterKundeObj2 (data) {
 
     //Inspiration: https://stackoverflow.com/a/4743038
     var k = new Kunde();
@@ -74,7 +88,7 @@ export function formaterKundeObj (data) {
 
 export function formaterRevisorObj (data) {
 
-    let moeder = formaterMoeder(data.moeder);
+    let moeder = formaterMoederRevisor(data.moeder);
 
     data.moeder = moeder;
 

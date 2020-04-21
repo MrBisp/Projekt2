@@ -15,9 +15,9 @@ $.ajax({url: 'http://localhost:3000/userByToken/' + token,
     success: function(result) {
         let kid = result.user._id;
         ro = result.user;
-        console.log(ro);
         $.ajax({url: "http://localhost:3000/moede/" + kid, success: (result) => {
                 ro.moeder = result;
+                console.log(result);
                 if(ro.type === 1) {
                     //Revisor
                     console.log("2" + result);
@@ -35,6 +35,7 @@ $.ajax({url: 'http://localhost:3000/userByToken/' + token,
                     alert("Noget gik galt - prøv venligst igen, ellers kontakt aministrationen...")
                 }
         }});
+        console.log(ro);
 }});
 
 
