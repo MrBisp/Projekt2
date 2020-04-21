@@ -1,51 +1,22 @@
-//Lavet af VR
-
-//roid = revisorobjekt id, på revisoreren som er logget ind
-//ro = revisorobjekt på revisoren som er logget ind
-
 import * as utils from "./modules/utils";
-import * as kalender from "./modules/kalender";
 
-let møder;
-let ro;
+let ko;
 
 var token = localStorage.getItem('token');
 
 $.ajax({url: 'localhost:3000/userByToken/' + token, success: function(result) {
         let kid = result.user._id;
-        ro = result.user;
+        ko = result.user;
 
         $.ajax({url: "http://localhost:3000/moede/" + id, success: function(resultMoeder){
-                ro.moeder = resultMoeder;
-                if(ro.type === 1) {
-                    //Revisor
-                    ro = utils.formaterRevisorObj(result.user[0]);
-                    //Sorterer møder efter dato
-                    ro.moeder.sort(sorterEfterMødeDato);
-                } else if (ro.type === 2){
-                    //Revisor
-                    ro = utils.formaterKundeObj(result.user[0]);
-                    //Sorterer møder efter dato
-                    ro.moeder.sort(sorterEfterMødeDato);
-                } else {
-                    alert("Noget gik galt - prøv venligst igen, ellers kontakt aministrationen...")
-                }
-        }});
+                ko.moeder = resultMoeder;
+                ko = utils.formaterKundeObj(result.user[0]);
+                //Sorterer møder efter dato
+                ko.moeder.sort(sorterEfterMødeDato);
+            }});
 }});
 
-
-
-//if (roid == null || ro == null) {
-    //location.href = "Login.html";
-//}
-
-//ro = formaterRevisor(ro)[0];
-
-console.log(ro);
-//lavet af MM
-//Henter og indsætter info om hvilken revisor der er logget ind
-document.getElementById('revisorNavn').innerHTML = ro.getNavn();
-
+document.getElementById('kundeNavn').innerHTML = ko.getNavn();
 
 var år;
 var måned;
@@ -87,7 +58,7 @@ function hentMøder() {
 
         //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
         if (valgtDato.getFullYear() == mødeDato.getFullYear() &&
-        valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
+            valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
             var kundenavn = møder[i].getKundenavn();
             var kommentar = møder[i].getKommentar();
             var mail = møder[i].getMail();
@@ -121,62 +92,4 @@ function hentMøder() {
     }
 
     if(!erDerMøder) document.getElementById("mødeoversigt").innerHTML = 'Der er ingen møder denne dag :)';
-}
-
-
-//Lavet af FH
-//Sletter et møde med et specifikt ID
-function sletMøde(id) {
-
-    let con = confirm ("Er du sikker på, at du vil slette mødet?");
-    if (!con) return;
-    //Looper gennem alle møder, og finder den som har det ID som vi ønsker at slette
-    for (var i = 0; i < ro.getMøder().length; i++) {
-        if (ro.getMøder() [i].getID() == id) {
-            console.log(ro.getMøder() [i]);
-
-            //Fjern mødet fra arrayen ved splice-funktionen
-            møder.splice(i, 1);
-            console.log(møder);
-
-            //Lægger herefter den nye data op i localstorage og sessionstorage.
-            localStorage.setItem('gemtRevisorhus', JSON.stringify(grh));
-            sessionStorage.setItem('loggedInRevisorObject', JSON.stringify(grh.getRevisorer()[roid]));
-
-            $.ajax({
-                type: 'DELETE',
-                url: "http://localhost:3000/moede/" + id  })
-                .done(function(resultMoeder) {
-                alert ("Mødet er blevet slettet")
-                });
-
-            //refresher møderne på den nuværende dag
-            hentMøder();
-
-            //Bryd ud af loopet, da mødet med det rette ID er fundet
-            break;
-        }
-
-    }
-}
-
-
-//Lavet af VR
-//Log af ved at rydde sessionstorage
-function logAf(){
-    sessionStorage.removeItem('loggedInRevisorObject');
-    sessionStorage.removeItem('loggedInRevisorId');
-    window.location.href = 'Login.html';
-}
-
-//Lavet af FH
-//Sorterer efter mødedato
-//Retunerer -1 hvis a kommer først og 1 hvis b kommer først
-function sorterEfterMødeDato(a, b){
-    var r = 1;
-
-    if(a.getStartTid().getTime() < b.getStartTid().getTime()){
-        r = -1;
-    }
-    return r;
 }
