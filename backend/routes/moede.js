@@ -151,9 +151,9 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-//Ændrer i møde
+//Godkend møde i møde
 router.put('/approve/:id', async (req, res) => {
-    let moede = await Moede.findOneAndUpdate({_id: req.params.id}, {approved: true});
+    let moede = await Moede.findOneAndUpdate({_id: req.params.id}, {approved: true}, {new: true});
     console.log(moede);
     try {
        res.json({newMoede: moede});

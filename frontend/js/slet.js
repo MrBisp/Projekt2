@@ -23,7 +23,7 @@ function approveMoede (moedeId) {
         type: "PUT",
         success: (result) => {
             console.log(result);
-            //location.reload();
+            location.reload();
         }
     });
 }

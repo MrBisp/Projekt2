@@ -48,7 +48,7 @@ class Møde {
         return this.endTime;
     }
 
-    getKundeNavn() {
+    getKundenavn() {
         return this.kundeNavn;
     }
 

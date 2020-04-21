@@ -164,10 +164,11 @@ function hentMøderRevisor() {
             var tlfnr = ro.moeder[i].getTlfnr();
             var startTid = ro.moeder[i].getStartTid();
             var slutTid = ro.moeder[i].getSlutTid();
+            var status = "Not Approved";
             var id = ro.moeder[i]._id;
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
-            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
+            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "Status: " + status + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
             "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
             unapprovedmøde.classList = "unapprovedmøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
