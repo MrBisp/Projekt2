@@ -1,4 +1,4 @@
-function sletMøde(id) {
+function sletmoede() {
 
     let con = confirm ("Er du sikker på, at du vil slette mødet?");
     if (!con) return;
