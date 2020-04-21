@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //Access token
 const accessTokenSecret = 'youraccesstokensecret';
 
-router.post('/', async (req, res) => {
+router.post('/userloginWithAuth', async (req, res) => {
     let user = await User.find({username: req.body.username});
     console.log(req.body.password);
     console.log(user[0].type);
@@ -16,11 +16,11 @@ router.post('/', async (req, res) => {
         res.json({msg: "Brugeren eksisterer ikke", success: false});
     } else if (user.length > 0 && user[0].password == req.body.password){
 
-        const accessToken = jwt.sign({u: user[0].populate('moeder')}, accessTokenSecret);
-        res.json({msg: "korrekt", success: true, token: accessToken});
+        const accessToken = jwt.sign({u: user[0]}, accessTokenSecret);
+        res.json({msg: "korrekt", success: true, token: accessToken, user: user});
 
     } else if (user.length > 0 && user[0].password !== req.body.password) {
-        res.json({msg: "Der findes en bruger med brugernavnet, men password er ikke korrekt", success: false, user: user});
+        res.json({msg: "Der findes en bruger med brugernavnet, men password er ikke korrekt", success: false});
     }
 });
 

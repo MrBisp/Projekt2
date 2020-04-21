@@ -3,30 +3,34 @@
 //roid = revisorobjekt id, på revisoreren som er logget ind
 //ro = revisorobjekt på revisoren som er logget ind
 
-import * as utils from "./modules/utils";
-import * as kalender from "./modules/kalender";
+import * as utils from "./modules/utils.mjs";
 
 let møder;
 let ro;
 
 var token = localStorage.getItem('token');
 
-$.ajax({url: 'localhost:3000/userByToken/' + token, success: function(result) {
+$.ajax({url: 'http://localhost:3000/userByToken/' + token,
+    type: "GET",
+    success: function(result) {
         let kid = result.user._id;
         ro = result.user;
-
-        $.ajax({url: "http://localhost:3000/moede/" + id, success: function(resultMoeder){
-                ro.moeder = resultMoeder;
+        console.log(ro);
+        $.ajax({url: "http://localhost:3000/moede/" + kid, success: (result) => {
+                ro.moeder = result;
                 if(ro.type === 1) {
                     //Revisor
-                    ro = utils.formaterRevisorObj(result.user[0]);
+                    console.log("2" + result);
+                    ro = utils.formaterRevisorObj(ro);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
+                    createPage();
                 } else if (ro.type === 2){
                     //Revisor
                     ro = utils.formaterKundeObj(result.user[0]);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
+                    createPage();
                 } else {
                     alert("Noget gik galt - prøv venligst igen, ellers kontakt aministrationen...")
                 }
@@ -40,32 +44,32 @@ $.ajax({url: 'localhost:3000/userByToken/' + token, success: function(result) {
 //}
 
 //ro = formaterRevisor(ro)[0];
-
-console.log(ro);
-//lavet af MM
-//Henter og indsætter info om hvilken revisor der er logget ind
-document.getElementById('revisorNavn').innerHTML = ro.getNavn();
-
-
 var år;
 var måned;
 var dag;
-
 //Laver en variabel som sættes til dagens dato
 var idag = new Date ();
 
+function createPage () {
+    console.log(" 3" + ro);
+//lavet af MM
+//Henter og indsætter info om hvilken revisor der er logget ind
+    document.getElementById('revisorNavn').innerHTML = ro.getNavn();
+
 //Sætter selectelementernes defaultvalue til at være dagens dato
-document.getElementById('år').value = idag.getFullYear();
-document.getElementById('måned').value = idag.getMonth();
-document.getElementById('dag').value = idag.getDate();
+    document.getElementById('år').value = idag.getFullYear();
+    document.getElementById('måned').value = idag.getMonth();
+    document.getElementById('dag').value = idag.getDate();
 
 //Når man har valgt en dato i select, så skal den run funktionen hentMøder()
-document.getElementById('år').addEventListener('change', hentMøder);
-document.getElementById('måned').addEventListener('change', hentMøder);
-document.getElementById('dag').addEventListener('change', hentMøder);
+    document.getElementById('år').addEventListener('change', hentMøder);
+    document.getElementById('måned').addEventListener('change', hentMøder);
+    document.getElementById('dag').addEventListener('change', hentMøder);
 
 
-hentMøder();
+    hentMøder();
+}
+
 
 function hentMøder() {
     document.getElementById("mødeoversigt").innerHTML = "";
@@ -77,24 +81,24 @@ function hentMøder() {
     var valgtDato = new Date (år, måned, dag);
     var erDerMøder = false;
 
-    for (var i=0; i<møder.length; i++){
-
+    for (var i=0; i<ro.moeder.length; i++){
+        console.log(ro.moeder[i]);
         //Skaber variabler til mødets tider og dato
-        var startTid = møder[i].getStartTid();
-        var slutTid = møder[i].getSlutTid();
+        var startTid = ro.moeder[i].getStartTid();
+        var slutTid = ro.moeder[i].getSlutTid();
         var mødeDato = new Date (startTid.getFullYear(), startTid.getMonth(), startTid.getDate());
 
 
         //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
         if (valgtDato.getFullYear() == mødeDato.getFullYear() &&
         valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
-            var kundenavn = møder[i].getKundenavn();
-            var kommentar = møder[i].getKommentar();
-            var mail = møder[i].getMail();
-            var tlfnr = møder[i].getTlfnr();
-            var startTid = møder[i].getStartTid();
-            var slutTid = møder[i].getSlutTid();
-            var id = møder[i].getID();
+            var kundenavn = ro.moeder[i].getKundenavn();
+            var kommentar = ro.moeder[i].getKommentar();
+            var mail = ro.moeder[i].getMail();
+            var tlfnr = ro.moeder[i].getTlfnr();
+            var startTid = ro.moeder[i].getStartTid();
+            var slutTid = ro.moeder[i].getSlutTid();
+            var id = ro.moeder[i].getID();
             erDerMøder = true;
             /*
             console.log(kundenavn);

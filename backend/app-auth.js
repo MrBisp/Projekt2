@@ -25,7 +25,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 const accessTokenSecret = 'youraccesstokensecret';
 
-app.use('/login-auth', require('./routes/login-auth'));
+//app.use('/login-auth', require('./routes/login-auth'));
 
 const authenticateJWT = (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -45,7 +45,6 @@ const authenticateJWT = (req, res, next) => {
 
 app.get('/books', authenticateJWT, (req,res) => {
     const type = req.user.type;
-
     //If revisor
     if(type == 1) {
         res.json(req.user);
@@ -57,14 +56,6 @@ app.get('/books', authenticateJWT, (req,res) => {
     }
 });
 
-app.get('/userByToken/:token', (req,res) => {
-    jwt.verify(req.params.token, accessTokenSecret, (err, user) => {
-        if (err) {
-            return res.sendStatus(403);
-        }
-        res.json({'user': user.u});
-    });
-});
 
 
 
@@ -76,12 +67,21 @@ app.use(function(req, res, next) {
 //Er det her ikke brugt til udførelse af bogens materiale?
 //app.use( '/posts/store', validateMiddleware);
 
+app.get('/userByToken/:token', (req,res) => {
+
+    jwt.verify(req.params.token, accessTokenSecret, (err, user) => {
+        if (err) {
+            return res.sendStatus(403);
+        }
+        res.json({'user': user.u});
+    });
+});
 
 //Import routes (api)
 app.use('/revisor', require('./routes/revisor'));
 app.use('/moede', require('./routes/moede'));
 app.use('/user', require('./routes/user'));
-app.use('/login', require('./routes/login'));
+app.use('/login', require('./routes/login-auth'));
 
 
 

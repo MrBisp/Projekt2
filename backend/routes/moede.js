@@ -12,7 +12,7 @@ let skatMoede = Moede.discriminator('SkatteMøde', new mongoose.Schema({'skat': 
 //Routes
 router.get('/', async (req, res) => {
     try {
-        const moede = await Moede.find().populate('revisor');
+        const moede = await Moede.find().populate('revisor').populate('kunde');
         res.json(moede);
     } catch (err) {
         res.json({msg: 'Fejl: ' + err});
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     console.log('get id');
     try {
-        const moede = await Moede.find({"revisor":req.params.id});
+        const moede = await Moede.find({"revisor":req.params.id}).populate('revisor').populate('kunde');
         res.json(moede);
     } catch (e) {
         res.json({msg: 'fejl ' + e});

@@ -8,15 +8,17 @@ $("#loginForm").submit((e)=> {
     console.log("input: " + inputData);
 
     $.ajax({
-        url: "http://localhost:3000/login/userlogin",
+        url: "http://localhost:3000/login/userloginWithAuth",
         data: inputData,
+        type: "POST",
         success: function (result) {
             if(result.success === false) {
                 alert(result.msg);
-                console.log(result);
+                console.log("Abe" + result);
             } else if (result.success === true) {
                 localStorage.setItem('token',result.token);
-                //console.log(result);
+                console.log(result);
+                //Endnu et Ajax kald eller hvad?
                 if(result.user[0].type === 1) {
                     //Revior
                     window.location.replace("revisorLoginside.html");

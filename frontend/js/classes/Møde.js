@@ -3,7 +3,7 @@
 // https://eloquentjavascript.net/Eloquent_JavaScript.pdf p.102
 
 class Møde {
-    constructor (start, slut, kommentar, kunde, revisor, tlfnr, mail){
+    constructor (start, slut, kommentar, kunde, revisor, tlfnr, mail, id){
         this.startTime = start;
         this.endTime = slut;
         this.kunde = kunde;
@@ -11,6 +11,7 @@ class Møde {
         this.kommentar = kommentar;
         this.tlfnr = tlfnr;
         this.mail = mail;
+        this.id = id;
     }
 
     printTime(){
@@ -67,6 +68,9 @@ class Møde {
 
     }
 
+    getID() {
+        return this.id;
+    }
 }
 // inheritance
 // super()
