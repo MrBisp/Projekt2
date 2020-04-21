@@ -71,15 +71,19 @@ h2{
 #mødeoversigt{
     font: 16px Arial;
     float: right;
-    width: 35%;
+    width: 70%;
     box-sizing: border-box;
+    height: 40%;
+    display: inline-block;
 }
 
 #unapprovedmoeder{
     font: 16px Arial;
     float: right;
-    width: 35%;
+    width: 70%;
     box-sizing: border-box;
+    height:40%;
+    display: inline-block;
 }
 
 .nav {
@@ -129,6 +133,17 @@ h2{
     border: 0.5px solid black;
     font-size: 15px;
     font: bold;
+
+}
+
+#unapprovedmøde {
+     padding: 20px 25px;
+     margin: 20px 10px;
+     box-shadow: 0 1px 20px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+     width: 33%;
+     text-align: left;
+     display: inline-block;
+     line-height: 20px;
 
 }
 
