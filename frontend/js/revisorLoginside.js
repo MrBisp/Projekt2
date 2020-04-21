@@ -166,6 +166,12 @@ function hentMøderRevisor() {
             var slutTid = ro.moeder[i].getSlutTid();
             var status = "Not Approved";
             var id = ro.moeder[i]._id;
+
+            //Gør mødestart/slut læseligt
+            startTid = startTid.toLocaleTimeString().substring(0, 5);
+            slutTid = slutTid.toLocaleTimeString().substring(0, 5);
+
+
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
             unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "Status: " + status + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+

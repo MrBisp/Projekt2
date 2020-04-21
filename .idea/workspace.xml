@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Møde.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Møde.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/slet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/slet.js" afterDir="false" />
-    </list>
+    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587479843928</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Approve møder (route og funktion) spiller maks nu">
+      <created>1587481736277</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587481736277</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,7 +117,8 @@
     <MESSAGE value="Formater kunde- og revisor objekter inkl. formatering af møder" />
     <MESSAGE value="Gjort så man kan laver møder med den nye Model" />
     <MESSAGE value="rettelse til hentMøderRevisor" />
-    <option name="LAST_COMMIT_MESSAGE" value="rettelse til hentMøderRevisor" />
+    <MESSAGE value="Approve møder (route og funktion) spiller maks nu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Approve møder (route og funktion) spiller maks nu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
