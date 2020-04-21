@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,12 +83,12 @@
       <option name="project" value="LOCAL" />
       <updated>1587478520904</updated>
     </task>
-    <task id="LOCAL-00005" summary="css - frederik fix det">
-      <created>1587480330858</created>
+    <task id="LOCAL-00005" summary="rettelse til hentMøderRevisor">
+      <created>1587479843928</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1587480330858</updated>
+      <updated>1587479843928</updated>
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
@@ -113,8 +114,8 @@
     <MESSAGE value="Debugging af login funktoinalitet sammen med JWT" />
     <MESSAGE value="Formater kunde- og revisor objekter inkl. formatering af møder" />
     <MESSAGE value="Gjort så man kan laver møder med den nye Model" />
-    <MESSAGE value="css - frederik fix det" />
-    <option name="LAST_COMMIT_MESSAGE" value="css - frederik fix det" />
+    <MESSAGE value="rettelse til hentMøderRevisor" />
+    <option name="LAST_COMMIT_MESSAGE" value="rettelse til hentMøderRevisor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
