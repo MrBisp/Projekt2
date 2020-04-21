@@ -6,7 +6,7 @@ export function formaterRevisor(revisorer) {
     for(let i=0; i<revisorer.length; i++){
 
         //Vi starter med at formatere møderne  for den enkelte kunde
-        let moeder = formaterMoeder(revisorer[i].moeder);
+        let moeder = formaterMoederRevisor(revisorer[i].moeder);
 
         revisorer[i].moeder = moeder;
 

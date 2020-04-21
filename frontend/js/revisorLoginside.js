@@ -9,6 +9,7 @@ let møder;
 let ro;
 
 var token = localStorage.getItem('token');
+console.log('token: ' + token);
 
 $.ajax({url: 'http://localhost:3000/userByToken/' + token,
     type: "GET",
@@ -166,7 +167,7 @@ function hentMøderRevisor() {
             unapprovedmøde.classList = "enkelteUnapprovedMøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
         }
-        if else {
+        else if
             //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
             (valgtDato.getFullYear() == mødeDato.getFullYear() &&
             valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
@@ -203,10 +204,10 @@ function hentMøderRevisor() {
             mødeoversigt.appendChild(møde);
         }
     }
-    }
-
     if(!erDerMøder) document.getElementById("mødeoversigt").innerHTML = 'Der er ingen møder denne dag :)';
 }
+
+
 
 
 

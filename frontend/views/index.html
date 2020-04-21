@@ -84,15 +84,15 @@
                     <h3>Indtast dine oplysninger</h3>
                     <form id="opretMødeForm" >
                         <label for="kundenavn">Navn:</label><br>
-                        <input type="text" name="kunde" id="kundenavn" placeholder="Dit navn" value="Frederik"><br>
+                        <input type="text" name="kundeNavn" id="kundenavn" placeholder="Dit navn" value="Frederik"><br>
                         <span id="fejlKundenavn" class="fejlbesked"></span><br><br>
 
                         <label for="tlfnr">Tlf:</label><br>
-                        <input type="number" name="tlfnr" id="tlfnr" placeholder="Tlf nummer" value="123"><br>
+                        <input type="number" name="tlfnr" id="tlfnr" placeholder="Tlf nummer" value="10000000"><br>
                         <span id="fejlTlfnr" class="fejlbesked"></span><br><br>
 
                         <label for="mail">Mail:</label><br>
-                        <input type="email" name="mail" id="mail" placeholder="E-mail" value="f@lort.dk"><br>
+                        <input type="email" name="email" id="mail" placeholder="E-mail" value="f@lort.dk"><br>
                         <span id="fejlEmail" class="fejlbesked"></span><br><br>
 
                         <label for="mødetype">Møde type:</label><br>
@@ -118,6 +118,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/classes/User.js"></script>
     <script src="../js/classes/Revisorhus.js"></script>
+    <script src="../js/classes/Kunde.js"></script>
     <script src="../js/classes/Revisor.js"></script>
     <script src="../js/classes/Møde.js"></script>
     <script src="../js/databehandling.js"></script>

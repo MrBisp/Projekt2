@@ -32,15 +32,18 @@ router.get('/:id', async (req, res) => {
 
 //Tilføj et generisk møde
 router.post('/', async (req, res) => {
+    console.log(req.body.kunde);
     const moede = new Moede({
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         kunde: req.body.kunde,
+        kundeNavn: req.body.kundeNavn,
         revisor: req.body.revisor,
         kommentar: req.body.kommentar,
         tlfnr: req.body.tlfnr,
-        mail: req.body.mail,
-        type: 0
+        email: req.body.email,
+        type: 0,
+        approved: false
     });
 
     //console.log("Møde id = " + moede.id);
@@ -48,9 +51,8 @@ router.post('/', async (req, res) => {
 
     //Gem møde
     try {
-        const gemtRevisor = await moede.save();
-        res.json(gemtRevisor);
-
+        const gemtMøde = await moede.save();
+        res.json(gemtMøde);
     } catch (err) {
         res.json({msg: err});
     }

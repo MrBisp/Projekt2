@@ -8,6 +8,7 @@ const moedeSchema = mongoose.Schema({
     endTime: {type: String, required: true, min: 6.00, max: 23.75},
     //Det er ikke nødvendigt at have en bruger når man skal oprette et møde, og derfor er kunde propertien ikke required
     kunde: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: false},
+    kundeNavn: {type: String, required: true},
     revisor: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     //En kommentar er ikke krævet ved oprettelse af møde - derudover er trim ikke tilføjet
     kommentar: {type: String, required: false},

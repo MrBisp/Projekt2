@@ -1,18 +1,20 @@
 //Lavet af FH
 import * as kalender from './modules/kalender.mjs';
 import * as utils from './modules/utils.mjs';
+//import {formaterMoederRevisor} from "./modules/utils.mjs";
 
 let rh = new Revisorhus();
 let revisorer = [];
 
 //Laver et ajax call med jQuery, og får på den måde revisorerne
 $.ajax({url: "http://localhost:3000/user/revisor", success: function(result){
+    console.log(result);
     revisorer = utils.formaterRevisor(result);
 
     let defaultRevisorId = revisorer[0]._id;
     $.ajax({url: "http://localhost:3000/moede/" + defaultRevisorId, success: function(resultMoeder){
         console.log(resultMoeder);
-        revisorer[0].moeder = utils.formaterMoeder(resultMoeder);
+        revisorer[0].moeder = utils.formaterMoederRevisor(resultMoeder);
         console.log(revisorer);
 
         for(let i=0; i<revisorer.length; i++){
@@ -68,7 +70,7 @@ document.getElementById('revisorOption').addEventListener('change', function(e){
     var revisorId = this.value;
     $.ajax({url: "http://localhost:3000/moede/" + revisorId, success: function(resultMoeder){
         let revisor = revisorer.find(revisor => revisor._id == revisorId);
-        revisor.setMøder(utils.formaterMoeder(resultMoeder));
+        revisor.setMøder(utils.formaterMoederRevisor(resultMoeder));
         kalender.setVisKalenderFor(revisor);
         kalender.refresh();
     }});
@@ -84,7 +86,7 @@ $("#opretMødeForm").submit(function (e) {
     inputData += "&endTime=" + new Date(JSON.parse($('.tidspunkt.aktiv').data('slut'))).toISOString();
     inputData += "&revisor=" + $('#revisorOption').find(":selected").val() + "&";
 
-    console.log(JSON.stringify(inputData));
+    console.log(inputData);
 
 
 
@@ -94,7 +96,7 @@ $("#opretMødeForm").submit(function (e) {
             url: "http://localhost:3000/moede",
             type: 'post',
             dataType: 'json',
-            data: JSON.stringify(inputData),
+            data: inputData,
             success: function (result) {
                 console.log(result);
                 alert('Mødet blev succesfuldt oprettet');
