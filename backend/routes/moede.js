@@ -141,7 +141,7 @@ POSTMAN:
 //Fjerner møde
 router.delete('/:id', async (req, res) => {
     try {
-        const sletmoede = await moede.remove({_id: req.params.id});
+        const sletmoede = await Moede.remove({_id: req.params.id});
         res.json(sletmoede);
     } catch (e) {
         res.json({msg: 'fejl ' + e});

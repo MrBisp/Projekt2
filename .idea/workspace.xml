@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app-auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/slet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/slet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587472629100</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Debug">
+      <created>1587473753169</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587473753169</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,7 +109,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integration af JWT eksempel" />
     <MESSAGE value="Debugging af login funktoinalitet sammen med JWT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debugging af login funktoinalitet sammen med JWT" />
+    <MESSAGE value="Debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
