@@ -162,7 +162,7 @@ function hentMøderRevisor() {
 
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
-            unapprovedmøde.innerHTML = "Kundenavn: " + kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>" + "<br />"
+            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>" + "<br />"
             "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
             unapprovedmøde.classList = "enkelteUnapprovedMøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
