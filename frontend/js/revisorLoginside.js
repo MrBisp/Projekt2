@@ -70,9 +70,65 @@ function createPage () {
 
     hentMøder();
 }
+function hentMøderKunde() {
+    document.getElementById("mødeoversigt").innerHTML = "";
+    år = document.getElementById("år").value;
+    måned = document.getElementById("måned").value;
+    dag = document.getElementById("dag").value;
 
 
-function hentMøder() {
+    var valgtDato = new Date (år, måned, dag);
+    var erDerMøder = false;
+
+    for (var i=0; i<ro.moeder.length; i++){
+        console.log(ro.moeder[i]);
+        //Skaber variabler til mødets tider og dato
+        var startTid = ro.moeder[i].getStartTid();
+        var slutTid = ro.moeder[i].getSlutTid();
+        var mødeDato = new Date (startTid.getFullYear(), startTid.getMonth(), startTid.getDate());
+
+
+        //if-statement som siger, at hvis mødedato lig valgtdato, så udskriver den mødeobjektet
+        if (valgtDato.getFullYear() == mødeDato.getFullYear() &&
+            valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
+            var kundenavn = ro.moeder[i].getKundenavn();
+            var kommentar = ro.moeder[i].getKommentar();
+            var mail = ro.moeder[i].getMail();
+            var tlfnr = ro.moeder[i].getTlfnr();
+            var startTid = ro.moeder[i].getStartTid();
+            var slutTid = ro.moeder[i].getSlutTid();
+            var id = ro.moeder[i]._id;
+            var id1 = "'" + id + "'";
+            console.log(id);
+            erDerMøder = true;
+            /*
+            console.log(kundenavn);
+            console.log(kommentar);
+            console.log(mail);
+            console.log(tlfnr);
+            console.log(startTid);
+
+             */
+
+            //Gør mødestart/slut læseligt
+            startTid = startTid.toLocaleTimeString().substring(0,5);
+            slutTid = slutTid.toLocaleTimeString().substring(0,5);
+
+            //Laver en variabel for div'en "mødeoversigt
+            var mødeoversigt = document.getElementById("mødeoversigt");
+
+            //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
+            var møde = document.createElement("div");
+            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='"+id+"' onClick='sletmoede(this)'>Slet Møde</button>";
+            møde.classList = "enkelteMøde";
+            mødeoversigt.appendChild(møde);
+        }
+    }
+
+    if(!erDerMøder) document.getElementById("mødeoversigt").innerHTML = 'Der er ingen møder denne dag :)';
+}
+
+function hentMøderRevisor() {
     document.getElementById("mødeoversigt").innerHTML = "";
     år = document.getElementById("år").value;
     måned = document.getElementById("måned").value;
