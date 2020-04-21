@@ -154,7 +154,8 @@ router.delete('/:id', async (req, res) => {
 //Ændrer i møde
 router.put('/approve/:id', async (req, res) => {
    try {
-       await Moede.update({})
+       let moede = await Moede.updateOne({_id: req.params.id}, {approved: true});
+       res.json({newMoede: moede});
    } catch (e) {
        res.json({mag:"fejl: " + e})
    }

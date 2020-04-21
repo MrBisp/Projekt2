@@ -15,3 +15,13 @@ function sletmoede(e) {
         });
 
 }
+
+function approveMoede (moedeId) {
+    var id = moedeId.getAttribute('data-id');
+    $.ajax({url: "http://localhost:3000/moede/approve/" + id,
+        type: "PUT",
+        success: (result) => {
+            console.log(result);
+        }
+    });
+}
