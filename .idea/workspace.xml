@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Møde.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Møde.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +53,7 @@
       <updated>1587377255843</updated>
       <workItem from="1587377262983" duration="3781000" />
       <workItem from="1587460151788" duration="335000" />
+      <workItem from="1587499758573" duration="997000" />
     </task>
     <task id="LOCAL-00001" summary="Integration af JWT eksempel">
       <created>1587460342917</created>
@@ -96,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587481736277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Approve møder (route og funktion) spiller maks nu">
+      <created>1587483186231</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587483186231</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
