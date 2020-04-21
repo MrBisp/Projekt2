@@ -105,7 +105,7 @@ function hentMøderKunde() {
             valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
             var kundenavn = ro.moeder[i].getKundenavn();
             var kommentar = ro.moeder[i].getKommentar();
-            var mail = ro.moeder[i].getMail();
+            var email = ro.moeder[i].getEmail();
             var tlfnr = ro.moeder[i].getTlfnr();
             var startTid = ro.moeder[i].getStartTid();
             var slutTid = ro.moeder[i].getSlutTid();
@@ -115,7 +115,7 @@ function hentMøderKunde() {
             /*
             console.log(kundenavn);
             console.log(kommentar);
-            console.log(mail);
+            console.log(email);
             console.log(tlfnr);
             console.log(startTid);
 
@@ -130,7 +130,7 @@ function hentMøderKunde() {
 
             //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
             var møde = document.createElement("div");
-            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='"+id+"' onClick='sletmoede(this)'>Slet Møde</button>";
+            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />Email: " + email + "<br />Tlf: " + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='"+id+"' onClick='sletmoede(this)'>Slet Møde</button>";
             møde.classList = "enkelteMøde";
             mødeoversigt.appendChild(møde);
         }
@@ -160,8 +160,9 @@ function hentMøderRevisor() {
         if (!ro.moeder[i].approved) {
             var unapprovedmoeder = document.getElementById("unapprovedmoeder");
             var kommentar = ro.moeder[i].getKommentar();
-            var mail = ro.moeder[i].getMail();
+            var email = ro.moeder[i].getEmail();
             var tlfnr = ro.moeder[i].getTlfnr();
+            var dato = ro.moeder[i].getStartTid().getDate() + "/" + ro.moeder[i].getStartTid().getMonth() + "/" + ro.moeder[i].getStartTid().getFullYear();
             var startTid = ro.moeder[i].getStartTid();
             var slutTid = ro.moeder[i].getSlutTid();
             var status = "Not Approved";
@@ -174,7 +175,7 @@ function hentMøderRevisor() {
 
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
-            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "Status: " + status + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
+            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />Email: " +  email + "<br />Tlf: " + tlfnr + "<br />Dato: " + dato + "<br />"+ startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "Status: " + status + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
             "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
             unapprovedmøde.classList = "unapprovedmøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
@@ -185,7 +186,7 @@ function hentMøderRevisor() {
             valgtDato.getMonth() == mødeDato.getMonth() && valgtDato.getDate() == mødeDato.getDate()) {
             var kundenavn = ro.moeder[i].getKundenavn();
             var kommentar = ro.moeder[i].getKommentar();
-            var mail = ro.moeder[i].getMail();
+            var email = ro.moeder[i].getEmail();
             var tlfnr = ro.moeder[i].getTlfnr();
             var startTid = ro.moeder[i].getStartTid();
             var slutTid = ro.moeder[i].getSlutTid();
@@ -196,7 +197,7 @@ function hentMøderRevisor() {
             /*
             console.log(kundenavn);
             console.log(kommentar);
-            console.log(mail);
+            console.log(email);
             console.log(tlfnr);
             console.log(startTid);
 
@@ -211,7 +212,7 @@ function hentMøderRevisor() {
 
             //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
             var møde = document.createElement("div");
-            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + mail + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
+            møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + email + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
             møde.classList = "enkelteMøde";
             mødeoversigt.appendChild(møde);
         }
