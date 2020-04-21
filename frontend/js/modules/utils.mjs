@@ -101,3 +101,35 @@ export function formaterRevisorObj (data) {
     return r
 
 }
+
+function formaterRevisorObj2 (data) {
+
+
+    //Inspiration: https://stackoverflow.com/a/4743038
+    var r = new Revisor();
+
+    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
+    $.extend(r, data);
+
+    return r
+
+}
+
+export function formaterMoederKunde (m) {
+    //Inspiration: https://stackoverflow.com/a/4743044
+    let moeder = [];
+    for (let i=0; i<m.length; i++){
+        let moede = new Møde();
+        if(konverterDatoer){
+            m[i].startTime = new Date(m[i].startTime);
+            m[i].endTime = new Date(m[i].endTime);
+        }
+        $.extend(moede, m[i]);
+
+        moeder.push(moede);
+
+        m.revisor = formaterRevisorObj2(m.revisor);
+
+    }
+    return moeder;
+}
