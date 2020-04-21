@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Møde.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Møde.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="394575bd-a41f-4c96-9f41-105fdfc26a0a" />
   </component>
   <component name="ProjectId" id="1XkaywRQUojSmfg3ifgPmdjhyPi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -80,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587476777164</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Gjort så man kan laver møder med den nye Model">
+      <created>1587478520904</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587478520904</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +107,8 @@
     <MESSAGE value="Integration af JWT eksempel" />
     <MESSAGE value="Debugging af login funktoinalitet sammen med JWT" />
     <MESSAGE value="Formater kunde- og revisor objekter inkl. formatering af møder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formater kunde- og revisor objekter inkl. formatering af møder" />
+    <MESSAGE value="Gjort så man kan laver møder med den nye Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gjort så man kan laver møder med den nye Model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
