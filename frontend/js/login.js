@@ -19,7 +19,7 @@ $("#loginForm").submit((e)=> {
                 localStorage.setItem('token',result.token);
                 console.log(result);
                 //Der tages højde for om hvorvidt brugeren er en kunde eller revisor i 'revisorLoginSide.js'
-                window.location.replace("revisorLoginside.html");
+                window.location.replace("minSide.html");
             } else {
                 alert("Noget gik galt, prøv venligst igen...")
             }

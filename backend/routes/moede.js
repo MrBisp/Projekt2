@@ -30,6 +30,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+//Hent møder fra en kunde med kundeid id
+router.get('/kunde/:id', async (req, res) => {
+    console.log('get id');
+    try {
+        const moede = await Moede.find({"kunde":req.params.id}).populate('revisor').populate('kunde');
+        res.json(moede);
+    } catch (e) {
+        res.json({msg: 'fejl ' + e});
+    }
+});
+
 //Tilføj et generisk møde
 router.post('/', async (req, res) => {
     console.log(req.body.kunde);

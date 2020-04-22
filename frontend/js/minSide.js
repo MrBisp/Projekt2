@@ -9,14 +9,22 @@ let møder;
 let ro;
 
 var token = localStorage.getItem('token');
+if(token == null) location.href = 'Login.html';
+//Asset properties
 console.log('token: ' + token);
 
-$.ajax({url: 'http://localhost:3000/userByToken/' + token,
+$.ajax({url: 'http://localhost:3000/user/userByToken/',
     type: "GET",
+    beforeSend: function(request) {
+        request.setRequestHeader("Authorization", 'Bearer ' + token);
+    },
     success: function(result) {
         let kid = result.user._id;
         ro = result.user;
-        $.ajax({url: "http://localhost:3000/moede/" + kid, success: (result) => {
+        var goToURL = "http://localhost:3000/moede/";
+        if (ro.type == 2) goToURL += 'kunde/';
+        
+        $.ajax({url: goToURL + kid, success: (result) => {
                 ro.moeder = result;
                 console.log(result);
                 if(ro.type === 1) {
@@ -37,7 +45,11 @@ $.ajax({url: 'http://localhost:3000/userByToken/' + token,
                 }
         }});
         console.log(ro);
-}});
+    }, error: function() {
+        alert('Log ind igen');
+        location.href = 'Login.html';
+    }
+});
 
 
 

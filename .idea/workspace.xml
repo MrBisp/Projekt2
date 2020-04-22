@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/redirectWhenLoggedIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app-auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/kundeLoginSide.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/bookMoede.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/minSide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/slet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/minSideFunktionalitet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/opretKunde.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretKunde.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/opretRevisor.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretRevisor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/minSide.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +36,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="394575bd-a41f-4c96-9f41-105fdfc26a0a" />
+  </component>
   <component name="ProjectId" id="1XkaywRQUojSmfg3ifgPmdjhyPi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
@@ -55,6 +73,7 @@
       <workItem from="1587460151788" duration="335000" />
       <workItem from="1587499758573" duration="1099000" />
       <workItem from="1587546758903" duration="768000" />
+      <workItem from="1587554218855" duration="3529000" />
     </task>
     <task id="LOCAL-00001" summary="Integration af JWT eksempel">
       <created>1587460342917</created>

@@ -5,6 +5,36 @@ import * as utils from './modules/utils.mjs';
 
 let rh = new Revisorhus();
 let revisorer = [];
+let loggedIn = false;
+let userID;
+
+var token = localStorage.getItem('token');
+//Asset properties
+console.log('token: ' + token);
+
+$.ajax({url: 'http://localhost:3000/user/userByToken/',
+    type: "GET",
+    beforeSend: function(request) {
+        request.setRequestHeader("Authorization", 'Bearer ' + token);
+    },
+    success: function(result){
+        const user = result.user;
+        userID = user._id;
+        //Kunde er logget ind
+        if(user.type == 2){
+            loggedIn = true;
+            console.log(user);
+            $('#kundenavn').val(user.navn);
+            $('#tlfnr').val(user.tlf);
+            $('#mail').val(user.email);
+
+        } else {
+            alert('Man kan ikke oprette et møde, når man er logget ind som revisor');
+            location.href = 'minSide.html';
+        }
+    }
+
+});
 
 //Laver et ajax call med jQuery, og får på den måde revisorerne
 $.ajax({url: "http://localhost:3000/user/revisor", success: function(result){
@@ -84,7 +114,12 @@ $("#opretMødeForm").submit(function (e) {
     let inputData = $("#opretMødeForm").serialize();
     inputData += "&startTime=" + new Date(JSON.parse($('.tidspunkt.aktiv').data('start'))).toISOString();
     inputData += "&endTime=" + new Date(JSON.parse($('.tidspunkt.aktiv').data('slut'))).toISOString();
-    inputData += "&revisor=" + $('#revisorOption').find(":selected").val() + "&";
+    inputData += "&revisor=" + $('#revisorOption').find(":selected").val();
+
+    if(loggedIn) {
+        inputData += '&kunde=' + userID;
+        console.log('Vi er logget ind!');
+    }
 
     console.log(inputData);
 

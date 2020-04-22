@@ -7,6 +7,9 @@ const Revisor = require("../models/Revisor");
 const Kunde = require("../models/Kunde");
 const moede = require("../models/Moede");
 
+//Middleware
+const authenticationMiddleware = require('../middleware/authenticationMiddleware');
+
 //Routes
 //Henter alle brugere fra DB
 router.get('/', async (req, res) => {
@@ -181,6 +184,9 @@ router.post("/opretRevisor", async (req,res) => {
 
 });
 
+router.get('/userByToken', authenticationMiddleware, (req,res) => {
+    res.json({'user': req.user});
+});
 
 
 
