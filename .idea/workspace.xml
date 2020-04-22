@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/revisorLoginside.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/opretKunde.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretKunde.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/opretRevisor.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretRevisor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +59,7 @@
       <workItem from="1587377262983" duration="3781000" />
       <workItem from="1587460151788" duration="335000" />
       <workItem from="1587499758573" duration="1099000" />
-      <workItem from="1587546758903" duration="768000" />
+      <workItem from="1587546758903" duration="1280000" />
     </task>
     <task id="LOCAL-00001" summary="Integration af JWT eksempel">
       <created>1587460342917</created>
@@ -112,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587502213729</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="CSS fungerer som det skal">
+      <created>1587547549959</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587547549960</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +151,8 @@
     <MESSAGE value="rettelse til hentMøderRevisor" />
     <MESSAGE value="Approve møder (route og funktion) spiller maks nu" />
     <MESSAGE value="Overskrifter er tilføjet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Overskrifter er tilføjet" />
+    <MESSAGE value="CSS fungerer som det skal" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSS fungerer som det skal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

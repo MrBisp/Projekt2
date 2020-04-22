@@ -174,6 +174,8 @@ function hentMøderRevisor() {
             startTid = startTid.toLocaleTimeString().substring(0, 5);
             slutTid = slutTid.toLocaleTimeString().substring(0, 5);
 
+            $("#unapprovedmoeder").html("<h3>Afventer godkendelse</h3>");
+
 
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
