@@ -140,7 +140,8 @@ function hentMøderKunde() {
 }
 
 function hentMøderRevisor() {
-    document.getElementById("mødeoversigt").innerHTML = "";
+    $("#mødeoversigt").text("");
+    $("#mødeoversigt .enkelteMøder").remove();
     år = document.getElementById("år").value;
     måned = document.getElementById("måned").value;
     dag = document.getElementById("dag").value;
@@ -148,6 +149,7 @@ function hentMøderRevisor() {
 
     var valgtDato = new Date (år, måned, dag);
     var erDerMøder = false;
+    $("#mødeoversigt").html("<h3>Dagens møder</h3>");
 
     for (var i=0; i<ro.moeder.length; i++) {
         console.log(ro.moeder[i]);
@@ -213,11 +215,11 @@ function hentMøderRevisor() {
             //Skaber et element til møderne for den dag, hvor kundens informationer indsættes i HTML
             var møde = document.createElement("div");
             møde.innerHTML = "Kundenavn: " + kundenavn + "<br />" + email + "<br />" + tlfnr + "<br />" + startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Slet Møde</button>";
-            møde.classList = "enkelteMøde";
+            møde.classList = "enkelteMøder";
             mødeoversigt.appendChild(møde);
         }
     }
-    if(!erDerMøder) document.getElementById("mødeoversigt").innerHTML = 'Der er ingen møder denne dag :)';
+    if(!erDerMøder) document.getElementById("mødeoversigt").innerText = 'Der er ingen møder denne dag :)';
 }
 
 
