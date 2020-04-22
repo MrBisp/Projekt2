@@ -23,7 +23,7 @@ $.ajax({url: 'http://localhost:3000/user/userByToken/',
         ro = result.user;
         var goToURL = "http://localhost:3000/moede/";
         if (ro.type == 2) goToURL += 'kunde/';
-        
+
         $.ajax({url: goToURL + kid, success: (result) => {
                 ro.moeder = result;
                 console.log(result);
