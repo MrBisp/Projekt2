@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
+    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="Fiks af tid strings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/revisorLoginside.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/opretKunde.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretKunde.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/opretRevisor.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretRevisor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app-auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/revisorLoginside.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
