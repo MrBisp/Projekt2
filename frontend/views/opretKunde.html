@@ -10,10 +10,12 @@
 <div id="baggrund" class="navOpret">
     <div class="nav">
         <ul class="navbar">
-            <li class="navList"><a class="navLista" href="index.html">Kalender</a></li>
-            <li class="navList"><a class="navLista" href="Login.html">Login</a></li>
-            <li class="navList"><a class="navLista" href="opretRevisor.html">Opret revisor</a></li>
-            <li class="navList"><a class="navLista" href="opretKunde.html">Opret Bruger</a></li>
+            <li class="navList" id="kalenderNav"><a class="navLista"  href="index.html">Kalender</a></li>
+            <li class="navList" id="loginNav"><a class="navLista" href="Login.html">Login</a></li>
+            <li class="navList" id="opretRevisorNav"><a class="navLista" href="opretRevisor.html">Opret revisor</a></li>
+            <li class="navList" id="opretBrugerNav"><a class="navLista" href="opretKunde.html">Opret Bruger</a></li>
+            <li class="navList" id="minSideNav"><a class="navLista" href="minSide.html">Min side</a></li>
+            <li class="navList" id="logafNav"><a class="navLista" onclick="logAf()" href="#">Log af</a></li>
         </ul>
     </div>
     <div class="opretBruger" id="opretBrugerBoks">
@@ -72,6 +74,9 @@
     <script src="../js/classes/Revisor.js"></script>
     <script src="../js/classes/Kunde.js"></script>
     <script src="../js/redirectWhenLoggedIn.js"></script>
+    <script src="../js/logafFunktion.js"></script>
+    <script src="../js/navbarMod.js"></script>
     <script type="module" src="../js/opretBruger.js"></script>
+
 </body>
 </html>

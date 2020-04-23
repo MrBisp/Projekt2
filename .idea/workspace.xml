@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/js/logafFunktion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/navbarMod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/bookMoede.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/bookMoede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/opretBruger.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/opretBruger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/kundeLoginSide.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/minSide.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/minSide.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/opretKunde.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretKunde.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/opretRevisor.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/opretRevisor.html" afterDir="false" />
     </list>

@@ -8,10 +8,12 @@
 <body>
 <div class="nav">
     <ul class="navbar">
-        <li class="navList"><a class="navLista" href="index.html">Kalender</a></li>
-        <li class="navList"><a class="navLista" href="Login.html">Login</a></li>
-        <li class="navList"><a class="navLista" href="opretRevisor.html">Opret revisor</a></li>
-        <li class="navList"><a class="navLista" href="opretKunde.html">Opret Bruger</a></li>
+        <li class="navList" id="kalenderNav"><a class="navLista"  href="index.html">Kalender</a></li>
+        <li class="navList" id="loginNav"><a class="navLista" href="Login.html">Login</a></li>
+        <li class="navList" id="opretRevisorNav"><a class="navLista" href="opretRevisor.html">Opret revisor</a></li>
+        <li class="navList" id="opretBrugerNav"><a class="navLista" href="opretKunde.html">Opret Bruger</a></li>
+        <li class="navList" id="minSideNav"><a class="navLista" href="minSide.html">Min side</a></li>
+        <li class="navList" id="logafNav"><a class="navLista" onclick="logAf()" href="#">Log af</a></li>
     </ul>
 </div>
 
@@ -107,6 +109,8 @@
 <script src="../js/classes/Revisor.js"></script>
 <script src="../js/classes/Møde.js"></script>
 <script src="../js/databehandling.js"></script>
+<script src="../js/navbarMod.js"></script>
+<script src="../js/logafFunktion.js"></script>
 <script type="module" src="../js/minSide.js"></script>
 <script src="../js/minSideFunktionalitet.js"></script>
 
