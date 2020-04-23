@@ -24,28 +24,40 @@ $.ajax({
 
 
 $("#opretBrugerForm").submit((e) => {
-    e.preventDefault();
+e.preventDefault();
 
-    let inputData = $("#opretBrugerForm").serialize();
-   // let inputData2 = $("#opretBrugerForm").serializeArray();
-    console.log(inputData);
+let inputData = $("#opretBrugerForm").serialize();
 
-   // let boolean = validation(inputData2);
+$(".fejlbesked").text("");
 
-    $.ajax({
-        url: "http://localhost:3000/user/opretBruger",
-        type: "post",
-        dataType: "json",
-        data: inputData,
-        success: function (result) {
-            console.log(result);
-            alert("Brugeren er nu oprettet");
-            location.reload();
-        },
-        error: function (e) {
-            console.log(e.msg);
-            alert("Der er sket en fejl - prøv igen");
-        }});
+// let inputData2 = $("#opretBrugerForm").serializeArray();
+console.log(inputData);
+
+// let boolean = validation(inputData2);
+
+$.ajax({
+    url: "http://localhost:3000/user/opretKunde",
+    type: "post",
+    dataType: "json",
+    data: inputData,
+    success: function (result) {
+        console.log(result);
+        alert("Brugeren er nu oprettet");
+        location.reload();
+    },
+    error: function (error) {
+        console.log(error);
+        console.log(error.responseJSON.errors);
+        let e = error.responseJSON.errors;
+        for (let field in e) {
+            console.log(field);
+            $("#fejl" + field).text("Du har ikke indtastet " + field + " korrekt!");
+
+            if(field == "privatKunde" || field == "erhvervsKunde") {
+                $("#fejlkundetype").text("Du har ikke indtastet kundetype korrekt!");
+            }
+        }
+    }});
 });
 
 
@@ -66,31 +78,40 @@ $("#opretRevisorForm").submit((e) => {
                 console.log(result);
                 alert("Brugeren er nu oprettet");
                 location.reload();
-            } else {
-                let errorArray = Object.entries(result.msg.errors);
-                errorArray.forEach(([key, value]) => {
-                    if (value.message === "Path `username` is required.") {
-                        $("#fejlBrugernavn").text("Du har ikke indtastet brugernavnet korrekt!");
-                    }
-                    if (value.message === "Path `password` is required.") {
-                        $("#fejlKodeord").text("Du har ikke indtastet kodeordet korrekt!");
-                    }
-                    if (value.message === "Path `email` is required.") {
-                        $("#fejlEmail").text("Du har ikke indtastet emailen korrekt!");
-                    }
-                    if (value.message === "Path `navn` is required.") {
-                        $("#fejlFornavn").text("Du har ikke indtastet enten fornavn eller efternavn korrekt!");
-                        $("#fejlEfternavn").text("Du har ikke indtastet enten fornavn eller efternavn korrekt!")
-                    }
-                    if (value.message === "Path `tlf` is required.") {
-                        $("#fejlTlf").text("Du har ikke indtastet telefonnummeret korrekt!");
-                    }
-                    if (value.properties.type === "min" || value.properties.type === "max") {
-                        $("#fejlTlf").text("Du har ikke indtastet et eksisterende telefonnummer!");
-                    }
-                });
+            }
+        },
+        error: function (error) {
+            console.log(error.responseJSON.errors);
+            let e = error.responseJSON.errors;
+            for (let field in e) {
+                console.log(field);
+                $("#fejl" + field).text("Du har ikke indtastet " + field + " korrekt!");
             }
         }
 })});
 
-
+/*
+else {
+    let errorArray = Object.entries(result.msg.errors);
+    errorArray.forEach(([key, value]) => {
+        if (value.message === "Path `username` is required.") {
+            $("#fejlBrugernavn").text("Du har ikke indtastet brugernavnet korrekt!");
+        }
+        if (value.message === "Path `password` is required.") {
+            $("#fejlKodeord").text("Du har ikke indtastet kodeordet korrekt!");
+        }
+        if (value.message === "Path `email` is required.") {
+            $("#fejlEmail").text("Du har ikke indtastet emailen korrekt!");
+        }
+        if (value.message === "Path `navn` is required.") {
+            $("#fejlFornavn").text("Du har ikke indtastet enten fornavn eller efternavn korrekt!");
+            $("#fejlEfternavn").text("Du har ikke indtastet enten fornavn eller efternavn korrekt!")
+        }
+        if (value.message === "Path `tlf` is required.") {
+            $("#fejlTlf").text("Du har ikke indtastet telefonnummeret korrekt!");
+        }
+        if (value.properties.type === "min" || value.properties.type === "max") {
+            $("#fejlTlf").text("Du har ikke indtastet et eksisterende telefonnummer!");
+        }
+    });
+}*/

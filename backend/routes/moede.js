@@ -63,9 +63,9 @@ router.post('/', async (req, res) => {
     //Gem møde
     try {
         const gemtMøde = await moede.save();
-        res.json(gemtMøde);
+        res.json({moede: gemtMøde, success: true});
     } catch (err) {
-        res.json({msg: err});
+        res.status(500).json(err);
     }
 });
 

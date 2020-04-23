@@ -22,46 +22,41 @@
             <!-- de forskellige input laves, så der kan indtastes -->
 
             <div class="opretBrugerinput" id="FornavnInput">
-                <br/> <input type="text" name="fornavn" id="fornavn" placeholder="Fornavn"><br/>
+                <br/> <input type="text" name="navn" id="fornavn" placeholder="Fornavn"><br/>
             </div>
-            <span id="fejlFornavn" class="fejlbesked"></span><br/><br/>
+            <span id="fejlnavn" class="fejlbesked"></span><br/><br/>
             <!-- nedenunder her, forberedes der til at der kan komme en fejlbesked efterfølgende gentages det hele-->
-
-            <div class="opretBrugerinput" id="EfternavnInput">
-                <br/> <input type="text" name="efternavn" id="efternavn" placeholder="Efternavn"><br/>
-            </div>
-            <span id="fejlEfternavn" class="fejlbesked"></span><br/><br/>
 
             <div class="opretBrugerinput" id="EmailInput">
                 <br/> <input type="text" name="email" id="email" placeholder="Email"><br/>
             </div>
-            <span id="fejlEmail" class="fejlbesked"></span><br/><br/>
+            <span id="fejlemail" class="fejlbesked"></span><br/><br/>
 
             <div class="opretBrugerinput" id="TlfInput">
                 <br/> <input type="number" name="tlf" id="tlf" placeholder="Tlf nr."><br/>
             </div>
-            <span id="fejlTlf" class="fejlbesked"></span><br/><br/>
+            <span id="fejltlf" class="fejlbesked"></span><br/><br/>
 
             <div class="opretBrugerinput" id="BrugernavnInput">
-                <br/> <input type="text" name="username" id="username" placeholder="Brugernavn"><br/>
+                <br/> <input type="text" name="username" id="username" placeholder="Username"><br/>
             </div>
-            <span id="fejlBrugernavn" class="fejlbesked"></span><br/><br/>
+            <span id="fejlusername" class="fejlbesked"></span><br/><br/>
 
             <div class="opretBrugerinput" id="KodeordInput">
-                <br/> <input type="password" name="password" id="password" placeholder="Kodeord"><br/>
+                <br/> <input type="password" name="password" id="password" placeholder="Password"><br/>
             </div>
-            <span id="fejlKodeord" class="fejlbesked"></span><br/><br/>
+            <span id="fejlpassword" class="fejlbesked"></span><br/><br/>
 
             <div class="opretBrugerinput" id="kundeTypeInput">
                 <!--Hvilken type kunde?<br/>-->
                 <select class="opretBrugerinput" name="kundeType" type="text" id="kundeType">
-                    <option value="IngenType" disabled="disabled" selected="selected">Hvilken type kunde?</option>
-                    <option value="privat">Privat Kunde</option>
-                    <option value="erhverv">Erhvervs Kunde</option>
-                    <option value="erhvervOgPrivat">Privat- og Erhvervs kunde</option>
+                    <option disabled="disabled" selected="selected">Hvilken type kunde?</option>
+                    <option value="1">Privat Kunde</option>
+                    <option value="2">Erhvervs Kunde</option>
+                    <option value="3">Privat- og Erhvervs kunde</option>
             </select>
             </div>
-            <span id="fejlKundetype" class="fejlbesked"></span><br/><br/>
+            <span id="fejlkundetype" class="fejlbesked"></span><br/><br/>
 
 
             Ved at lave en bruger accepterer jeg gældende <a href="https://www.retsinformation.dk/forms/r0710.aspx?id=45902"> regler og vilkår</a> <br/><br/>

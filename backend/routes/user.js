@@ -82,8 +82,7 @@ router.get('/hentBrugere', async (req, res) => {
 });
 
 router.post("/opretKunde", async (req, res) => {
-    let privatKunde = false;
-    let erhvervsKunde = false;
+    let privatKunde, erhvervsKunde;
 
     /*
     Godt nok - Der opstod et problem med queryen der kom med requesten. I og med vi stringifyer den, inden der bliver sendt som req, så ankommer hele queryen
@@ -97,16 +96,17 @@ router.post("/opretKunde", async (req, res) => {
     Dette er så ikke et problem, hvis vi lader vær med at stringify
     */
     //undersøger kundeTypen
-    if(req.body.kundeType == "privat"){
+    if(req.body.kundeType == 1){
         privatKunde = true;
+        erhvervsKunde = false;
         console.log("privat");
-    } else if (req.body.kundeType == "erhverv") {
+    } else if (req.body.kundeType == 2) {
         erhvervsKunde = true;
+        privatKunde = false;
         console.log("erhverv");
-    } else if (req.body.kundeType == "erhvervOgPrivat") {
+    } else if (req.body.kundeType == 3) {
         privatKunde = true;
         erhvervsKunde = true;
-        console.log("privat og erhverv");
     } else {console.log("Noget gik galt med typen af kunde");}
 
     //Kan ikke få fornavnet med
@@ -114,7 +114,7 @@ router.post("/opretKunde", async (req, res) => {
        username: req.body.username,
        password: req.body.password,
        email: req.body.email,
-       navn: req.body.fornavn + " " + req.body.efternavn,
+       navn: req.body.navn,
        tlf: req.body.tlf,
        type: 2,
        privatKunde: privatKunde,
@@ -126,7 +126,7 @@ router.post("/opretKunde", async (req, res) => {
         const gemtKunde = await kunde.save();
         res.json(gemtKunde);
    } catch (err) {
-       res.json({msg: "Fejl: " + err});
+       res.status(500).json(err);
    }
 });
 
@@ -165,7 +165,7 @@ router.post("/opretRevisor", async (req,res) => {
         username: req.body.username,
         password: req.body.password,
         email: req.body.email,
-        navn: req.body.fornavn + " " + req.body.efternavn,
+        navn: req.body.navn,
         tlf: req.body.tlf,
         type: 1,
         startDag: startTid,
@@ -178,7 +178,7 @@ router.post("/opretRevisor", async (req,res) => {
         let gemtRevisor = await revisor.save();
         res.json(gemtRevisor);
     } catch (err) {
-        res.json({msg: err})
+        res.status(500).json(err)
     }
 
 

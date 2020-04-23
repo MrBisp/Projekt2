@@ -84,25 +84,16 @@
                     <h3>Indtast dine oplysninger</h3>
                     <form id="opretMødeForm" >
                         <label for="kundenavn">Navn:</label><br>
-                        <input type="text" name="kundeNavn" id="kundenavn" placeholder="Dit navn"><br>
-                        <span id="fejlKundenavn" class="fejlbesked"></span><br><br>
+                        <input type="text" name="kundeNavn" id="kundenavn" placeholder="Dit navn" required><br>
+                        <span id="fejlkundenavn" class="fejlbesked"></span><br><br>
 
                         <label for="tlfnr">Tlf:</label><br>
-                        <input type="number" name="tlfnr" id="tlfnr" placeholder="Tlf nummer"><br>
-                        <span id="fejlTlfnr" class="fejlbesked"></span><br><br>
+                        <input type="number" name="tlfnr" id="tlfnr" placeholder="Tlf nummer" required><br>
+                        <span id="fejltlfnr" class="fejlbesked"></span><br><br>
 
                         <label for="mail">Mail:</label><br>
-                        <input type="email" name="email" id="mail" placeholder="E-mail"><br>
-                        <span id="fejlEmail" class="fejlbesked"></span><br><br>
-
-                        <label for="mødetype">Møde type:</label><br>
-                        <select id="mødetype">
-                            <option selected disabled value="0">  Vælg  </option>
-                            <option value="1">Møde 1</option>
-                            <option value="2">Møde 2</option>
-                            <option value="3">Møde 3</option>
-                        </select><br>
-                        <span id="fejlMøde" class="fejlbesked"></span><br><br>
+                        <input type="email" name="email" id="mail" placeholder="E-mail" required><br>
+                        <span id="fejlmail" class="fejlbesked"></span><br><br>
 
                         <label for="kommentar">Kommentar:</label><br>
                         <textarea id="kommentar" name="kommentar" placeholder="Indtast evt. kommentar"></textarea><br><br>

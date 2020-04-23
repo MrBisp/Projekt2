@@ -135,12 +135,16 @@ $("#opretMødeForm").submit(function (e) {
             success: function (result) {
                 console.log(result);
                 alert('Mødet blev succesfuldt oprettet');
-                location.reload();
-            }, error:  function(jqXHR,error, errorThrown) {
-                console.log(jqXHR.status);
+                //location.reload();
+            },
+            error:  function(error) {
                 console.log(error);
-                console.log(errorThrown);
-                alert('Noget gik desværre galt. Prøv igen.')
+                console.log(error.responseJSON.errors);
+                let e = error.responseJSON.errors;
+                for (let field in e) {
+                    console.log(field);
+                    $("#fejl" + field).text("Du har ikke indtastet " + field + " korrekt!");
+                }
             }
             });
     }
