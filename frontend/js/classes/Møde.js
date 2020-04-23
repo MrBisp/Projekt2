@@ -3,7 +3,7 @@
 // https://eloquentjavascript.net/Eloquent_JavaScript.pdf p.102
 
 class Møde {
-    constructor (start, slut, kommentar, kunde, kundeNavn, revisor, tlfnr, email, id, approved){
+    constructor (start, slut, kommentar, kunde, kundeNavn, revisor, tlfnr, email, _id, approved){
         this.startTime = start;
         this.endTime = slut;
         this.kunde = kunde;
@@ -12,7 +12,7 @@ class Møde {
         this.kommentar = kommentar;
         this.tlfnr = tlfnr;
         this.email = email;
-        this.id = id;
+        this._id = _id;
         this.approved = approved;
     }
 
@@ -71,7 +71,7 @@ class Møde {
     }
 
     getID() {
-        return this.id;
+        return this._id;
     }
 
     getStatus() {

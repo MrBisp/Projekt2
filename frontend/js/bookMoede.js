@@ -12,6 +12,7 @@ var token = localStorage.getItem('token');
 //Asset properties
 console.log('token: ' + token);
 
+//Laver request, for at se om vi er logget ind
 $.ajax({url: 'http://localhost:3000/user/userByToken/',
     type: "GET",
     beforeSend: function(request) {
@@ -45,8 +46,10 @@ $.ajax({url: "http://localhost:3000/user/revisor", success: function(result){
     $.ajax({url: "http://localhost:3000/moede/" + defaultRevisorId, success: function(resultMoeder){
         console.log(resultMoeder);
         revisorer[0].moeder = utils.formaterMoederRevisor(resultMoeder);
-        console.log(revisorer);
-
+        /*var tid = revisorer[0].moeder[17].endTime;
+        tid = tid.getDate();
+        console.log(tid);
+        */
         for(let i=0; i<revisorer.length; i++){
             rh.addRevisor(revisorer[i]);
             $('#revisorOption').append("<option value='" + result[i]._id + "'>" + result[i].navn + "</option>")
@@ -121,12 +124,8 @@ $("#opretMødeForm").submit(function (e) {
         console.log('Vi er logget ind!');
     }
 
-    console.log(inputData);
-
-
-
     //Marza: Eksempel på avanceret api kald
-    if(2+2===1 || true) {
+    if(true) {
         $.ajax({
             url: "http://localhost:3000/moede",
             type: 'post',
@@ -135,7 +134,7 @@ $("#opretMødeForm").submit(function (e) {
             success: function (result) {
                 console.log(result);
                 alert('Mødet blev succesfuldt oprettet');
-                //location.reload();
+                location.reload();
             },
             error:  function(error) {
                 console.log(error);
