@@ -2,7 +2,7 @@ import * as utils from "./modules/utils.mjs";
 
 let ro;
 var token = localStorage.getItem('token');
-if(token == null) location.href = 'Login.html';
+//if(token == null) location.href = 'Login.html';
 
 let år, måned, dag, idag, valgtDato, erDerMøder, kommentar, email, tlfnr, dato, startTid, slutTid, status, id, kundeNavn;
 
@@ -190,12 +190,10 @@ function logAf(){
     window.location.href = 'Login.html';
 }
 
-//Lavet af FH
 //Sorterer efter mødedato
 //Retunerer -1 hvis a kommer først og 1 hvis b kommer først
 function sorterEfterMødeDato(a, b){
     var r = 1;
-
     if(a.getStartTid().getTime() < b.getStartTid().getTime()){
         r = -1;
     }
