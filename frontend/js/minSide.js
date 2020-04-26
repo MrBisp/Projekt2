@@ -23,14 +23,14 @@ $.ajax({url: 'http://localhost:3000/user/userByToken/',
                 ro.moeder = result;
                 //Revisor
                 if(ro.type === 1) {
-                    ro = utils.formaterRevisorObj(ro);
+                    ro = utils.formaterRevisorObj(ro, true);
                     console.log(ro);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
                     createPage();
                 //Kunde
                 } else if (ro.type === 2){
-                    ro = utils.formaterKundeObj(ro);
+                    ro = utils.formaterKundeObj(ro, true);
                     console.log(ro);
                     //Sorterer møder efter dato
                     ro.moeder.sort(sorterEfterMødeDato);
@@ -138,6 +138,12 @@ function hentMøderRevisor() {
         //Skaber variabler til mødets tider og dato
         definerMødeVariabler(ro.moeder[i]);
         var mødeDato = new Date(startTid.getFullYear(), startTid.getMonth(), startTid.getDate());
+        let kundeType;
+        if(ro.moeder[i].kunde == null){
+            kundeType = 'ukendt';
+        } else {
+            kundeType = ro.moeder[i].kunde.getKundeType();
+        }
 
         if (!ro.moeder[i].approved) {
             console.log('not approved');
@@ -150,8 +156,12 @@ function hentMøderRevisor() {
 
             //Skaber et element til unapprovedmøderne uanset hvilken dag, som revisoren vælger
             var unapprovedmøde = document.createElement("div");
-            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />Email: " +  email + "<br />Tlf: " + tlfnr + "<br />Dato: " + dato + "<br />"+ startTid + " - " + slutTid + "<br />" + "Yderligere kommentar: " + kommentar + "<br />" + "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>"+
-            "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
+            unapprovedmøde.innerHTML = "Kundenavn: " + ro.moeder[i].kundeNavn + "<br />Email: " +  email + "<br />Tlf: " + tlfnr;
+            unapprovedmøde.innerHTML += "<br/>Kundetype: " + kundeType;
+            unapprovedmøde.innerHTML += "<br />Dato: " + dato + "<br />"+ startTid + " - " + slutTid + "<br />";
+            unapprovedmøde.innerHTML +="Yderligere kommentar: " + kommentar + "<br />";
+            unapprovedmøde.innerHTML += "<button class='godkend' data-id='" + id + "' onClick='approveMoede(this)'>Godkend</button>";
+            unapprovedmøde.innerHTML += "<button class='sletmoede' data-id='" + id + "' onClick='sletmoede(this)'>Afvis</button>";
             unapprovedmøde.classList = "unapprovedmøde";
             unapprovedmoeder.appendChild(unapprovedmøde);
         }
@@ -178,18 +188,6 @@ function hentMøderRevisor() {
     if(!erDerMøder) document.getElementById("mødeoversigt").innerText = 'Der er ingen møder denne dag :)';
 }
 
-
-
-
-
-//Lavet af VR
-//Log af ved at rydde sessionstorage
-function logAf(){
-    sessionStorage.removeItem('loggedInRevisorObject');
-    sessionStorage.removeItem('loggedInRevisorId');
-    window.location.href = 'Login.html';
-}
-
 //Sorterer efter mødedato
 //Retunerer -1 hvis a kommer først og 1 hvis b kommer først
 function sorterEfterMødeDato(a, b){
@@ -200,6 +198,7 @@ function sorterEfterMødeDato(a, b){
     return r;
 }
 
+//Definerer variabler som skal bruges af både kunde og revisor
 function definerMødeVariabler(m){
     kommentar = m.getKommentar();
     email = m.getEmail();
@@ -212,6 +211,7 @@ function definerMødeVariabler(m){
     id = m._id;
 }
 
+//Kaldes når klinenten ændrer datoen
 function opdaterDato(){
     år = document.getElementById("år").value;
     måned = document.getElementById("måned").value;

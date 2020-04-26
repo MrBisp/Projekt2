@@ -1,15 +1,12 @@
 //Lavet af FH
 import * as kalender from './modules/kalender.mjs';
 import * as utils from './modules/utils.mjs';
-//import {formaterMoederRevisor} from "./modules/utils.mjs";
 
-let rh = new Revisorhus();
 let revisorer = [];
 let loggedIn = false;
 let userID;
 
 var token = localStorage.getItem('token');
-//Asset properties
 console.log('token: ' + token);
 
 //Laver request, for at se om vi er logget ind
@@ -40,20 +37,18 @@ $.ajax({url: 'http://localhost:3000/user/userByToken/',
 //Laver et ajax call med jQuery, og får på den måde revisorerne
 $.ajax({url: "http://localhost:3000/user/revisor", success: function(result){
     console.log(result);
-    revisorer = utils.formaterRevisor(result);
+    revisorer = utils.formaterRevisorArray(result);
 
     let defaultRevisorId = revisorer[0]._id;
     $.ajax({url: "http://localhost:3000/moede/" + defaultRevisorId, success: function(resultMoeder){
         console.log(resultMoeder);
-        revisorer[0].moeder = utils.formaterMoederRevisor(resultMoeder);
-        /*var tid = revisorer[0].moeder[17].endTime;
-        tid = tid.getDate();
-        console.log(tid);
-        */
+        revisorer[0].moeder = utils.formaterArrayMoederRevisor(resultMoeder);
+
+        //Tilføjer alle revisorer til select, så kunden kan vælge mellem de oprettede revisorer
         for(let i=0; i<revisorer.length; i++){
-            rh.addRevisor(revisorer[i]);
             $('#revisorOption').append("<option value='" + result[i]._id + "'>" + result[i].navn + "</option>")
         }
+        //Initlaiserer kalenderen
         kalender.initKalender(revisorer[0]);
     }});
 }});
@@ -62,7 +57,6 @@ $.ajax({url: "http://localhost:3000/user/revisor", success: function(result){
 var månedknapper = document.getElementsByClassName('månedKnap');
 for (var i = 0; i<månedknapper.length; i++){
     månedknapper[i].addEventListener('click', function(){
-        //console.log('Månedsknap klikket');
         kalender.opdaterMåned(this.getAttribute('data-måned'));
     });
 }
@@ -82,12 +76,12 @@ document.addEventListener('click', function (e) {
         kalender.opdaterTidsplan(e.target);
     } else if (e.target.classList.contains('tidspunkt')) {
         var tidspunkter = document.getElementsByClassName("tidspunkt");
+        //Sletter classen 'aktiv' fra alle tidspunkterne først
         for (var i =0; i<tidspunkter.length; i++) {
             tidspunkter[i].classList.remove("aktiv");
         }
+        //Tilføjer klassen 'aktiv' for det tidspunkt der er klikket på
         document.getElementById('opretMødeContainer').style.display = 'block';
-        let nuværendeStarttidspunkt = JSON.parse(e.target.getAttribute('data-start'));
-        let nuværendeSluttidspunkt = JSON.parse(e.target.getAttribute('data-slut'));
         e.target.classList+= " aktiv";
     }
 });
@@ -102,51 +96,57 @@ document.getElementById('mødeOption').addEventListener('change', function(e){
 document.getElementById('revisorOption').addEventListener('change', function(e){
     var revisorId = this.value;
     $.ajax({url: "http://localhost:3000/moede/" + revisorId, success: function(resultMoeder){
+        //Finder først revisoren i arrayet ud fra dens id og formaterer denne
         let revisor = revisorer.find(revisor => revisor._id == revisorId);
-        revisor.setMøder(utils.formaterMoederRevisor(resultMoeder));
+        revisor.setMøder(utils.formaterArrayMoederRevisor(resultMoeder));
+        //Kalder kalenderklassens funktioner, for at vise den nye info
         kalender.setVisKalenderFor(revisor);
         kalender.refresh();
     }});
 });
 
-//submit
+//Håndterer submit af form med nyt møde
 //Inspiration: https://stackoverflow.com/a/18485054
 $("#opretMødeForm").submit(function (e) {
     e.preventDefault();
 
+    //Henter først dataen fra alle formene
     let inputData = $("#opretMødeForm").serialize();
+
+    //Tilføjer anden data som skal bruges i http-requesten, for at oprette mødet
     inputData += "&startTime=" + new Date(JSON.parse($('.tidspunkt.aktiv').data('start'))).toISOString();
     inputData += "&endTime=" + new Date(JSON.parse($('.tidspunkt.aktiv').data('slut'))).toISOString();
     inputData += "&revisor=" + $('#revisorOption').find(":selected").val();
 
+    //Hvis kunden er logget ind, tilføjes kundens ID til requesten
     if(loggedIn) {
         inputData += '&kunde=' + userID;
         console.log('Vi er logget ind!');
     }
 
-    //Marza: Eksempel på avanceret api kald
-    if(true) {
-        $.ajax({
-            url: "http://localhost:3000/moede",
-            type: 'post',
-            dataType: 'json',
-            data: inputData,
-            success: function (result) {
-                console.log(result);
-                alert('Mødet blev succesfuldt oprettet');
-                location.reload();
-            },
-            error:  function(error) {
-                console.log(error);
-                console.log(error.responseJSON.errors);
-                let e = error.responseJSON.errors;
-                for (let field in e) {
-                    console.log(field);
-                    $("#fejl" + field).text("Du har ikke indtastet " + field + " korrekt!");
-                }
+    //POSTer det nye møde til databsen
+    $.ajax({
+        url: "http://localhost:3000/moede",
+        type: 'post',
+        dataType: 'json',
+        data: inputData, //inputdataen fra kunden sendes med her
+        //Hvis alt gik som det skulle, giv brugeren besked og reload siden
+        success: function (result) {
+            console.log(result);
+            alert('Mødet blev succesfuldt oprettet');
+            location.reload();
+        },
+        //Hvis et felt ikke er udfyldt korrekt, outputtes fejlen til det tilhørende felt
+        error:  function(error) {
+            console.log(error);
+            console.log(error.responseJSON.errors);
+            let e = error.responseJSON.errors;
+            for (let field in e) {
+                console.log(field);
+                $("#fejl" + field).text("Du har ikke indtastet " + field + " korrekt!");
             }
-            });
-    }
+        }
+    });
 });
 
 

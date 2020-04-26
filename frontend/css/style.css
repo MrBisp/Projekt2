@@ -2,10 +2,6 @@ body{
     background-color: rgb(250, 250, 250);
 }
 
-.navbar ul{
-
-}
-
 .mainContainer{
     display: flex;
     justify-content: center;
@@ -293,5 +289,5 @@ body{
     cursor: pointer;
     border: 0.5px solid black;
     font-size: 18px;
-    font: bold;
+    font-weight: 700;
 }

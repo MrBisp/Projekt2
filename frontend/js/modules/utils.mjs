@@ -1,12 +1,12 @@
 const konverterDatoer = true;
 
-//Tager et objekt som argument og returnerer det efter det er instansieret i Revisor-klassen
-export function formaterRevisor(revisorer) {
+//Tager et array af objekter som argument og returnerer det
+// efter det er instansieret i Revisor-klassen
+export function formaterRevisorArray(revisorer) {
     let alleRevisorer = [];
     for(let i=0; i<revisorer.length; i++){
-
         //Vi starter med at formatere møderne  for den enkelte kunde
-        let moeder = formaterMoederRevisor(revisorer[i].moeder);
+        let moeder = formaterArrayMoederRevisor(revisorer[i].moeder);
 
         revisorer[i].moeder = moeder;
 
@@ -20,8 +20,8 @@ export function formaterRevisor(revisorer) {
     return alleRevisorer;
 }
 
-//Tager et objekt som argument og returnerer det efter det er instansieret i Møde-klassen
-export function formaterMoederRevisor (m) {
+//Tager et array af objecter som argument og returnerer det efter det er instansieret i Møde-klassen
+export function formaterArrayMoederRevisor (m) {
     //Inspiration: https://stackoverflow.com/a/4743044
     let moeder = [];
     for (let i=0; i<m.length; i++){
@@ -30,52 +30,22 @@ export function formaterMoederRevisor (m) {
             m[i].startTime = new Date(m[i].startTime);
             m[i].endTime = new Date(m[i].endTime);
         }
+        m[i].kunde = formaterKundeObj(m[i].kunde, false);
+
         $.extend(moede, m[i]);
 
         moeder.push(moede);
-
-        m.kunde = formaterKundeObj2(m.kunde);
 
     }
     return moeder;
 }
 
-export function formaterKunder (data) {
-    let alleKunder = [];
-    for(let i=0; i<data.length; i++){
-
-        //Vi starter med at formatere møderne  for den enkelte kunde
-        let moeder = formaterMoeder(data[i].moeder);
-
-        data[i].moeder = moeder;
-
-        //Inspiration: https://stackoverflow.com/a/4743038
-        var k = new Kunde();
-
-        //Bruger jquery extend så der kan bruges et objekt som 'constructor'
-        $.extend(k, data[i]);
-
-        alleKunder.push(k);
-    }
-    return alleKunder;
-}
-
-export function formaterKundeObj (data) {
+export function formaterKundeObj (data, formaterMøder) {
     //Vi starter med at formatere møderne  for den enkelte kunde
-    let moeder = formaterMoederKunde(data.moeder);
-
-    data.moeder = moeder;
-
-    //Inspiration: https://stackoverflow.com/a/4743038
-    var k = new Kunde();
-
-    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
-    $.extend(k, data);
-
-    return k
-}
-
-function formaterKundeObj2 (data) {
+    if(formaterMøder){
+        let moeder = formaterArrayMoederKunde(data.moeder);
+        data.moeder = moeder;
+    }
 
     //Inspiration: https://stackoverflow.com/a/4743038
     var k = new Kunde();
@@ -86,15 +56,13 @@ function formaterKundeObj2 (data) {
     return k
 }
 
-export function formaterRevisorObj (data) {
-
-    let moeder = formaterMoederRevisor(data.moeder);
-
-    data.moeder = moeder;
-
+export function formaterRevisorObj (data, formaterMøder) {
+    if(formaterMøder){
+        let moeder = formaterArrayMoederRevisor(data.moeder);
+        data.moeder = moeder;
+    }
     //Inspiration: https://stackoverflow.com/a/4743038
     var r = new Revisor();
-
     //Bruger jquery extend så der kan bruges et objekt som 'constructor'
     $.extend(r, data);
 
@@ -102,20 +70,7 @@ export function formaterRevisorObj (data) {
 
 }
 
-function formaterRevisorObj2 (data) {
-
-
-    //Inspiration: https://stackoverflow.com/a/4743038
-    var r = new Revisor();
-
-    //Bruger jquery extend så der kan bruges et objekt som 'constructor'
-    $.extend(r, data);
-
-    return r
-
-}
-
-export function formaterMoederKunde (m) {
+export function formaterArrayMoederKunde (m) {
     //Inspiration: https://stackoverflow.com/a/4743044
     let moeder = [];
     for (let i=0; i<m.length; i++){
@@ -124,11 +79,11 @@ export function formaterMoederKunde (m) {
             m[i].startTime = new Date(m[i].startTime);
             m[i].endTime = new Date(m[i].endTime);
         }
+        m[i].revisor = formaterRevisorObj(m[i].revisor, false);
+
         $.extend(moede, m[i]);
 
         moeder.push(moede);
-
-        m.revisor = formaterRevisorObj2(m.revisor);
 
     }
     return moeder;

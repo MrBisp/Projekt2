@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="Min Side + booking af møde funktionalitet med Date + oprydning af kode">
+    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="Har ryddet op i samtlige filer i frontenden">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app-auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/middleware/validationMiddleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Kunde.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Kunde.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Revisor.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Revisor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/login-auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/revisor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/bookMoede.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/bookMoede.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Kalender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Kunde.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Kunde.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Møde.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Møde.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/OpretRevisor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Revisor.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/Revisor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/Revisorhus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/classes/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/classes/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/databehandling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/logafFunktion.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/logafFunktion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/minSide.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/minSide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/minSideFunktionalitet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/minSideFunktionalitet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/modules/burgerInputVal.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/modules/utils.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/navbarMod.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/navbarMod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/opretBruger.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/opretBruger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/redirectWhenLoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/redirectWhenLoggedIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/sletmoede.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/minSide.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/minSide.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +79,8 @@
       <workItem from="1587499758573" duration="1099000" />
       <workItem from="1587546758903" duration="1280000" />
       <workItem from="1587631214811" duration="5417000" />
+      <workItem from="1587729740762" duration="78000" />
+      <workItem from="1587889598581" duration="5480000" />
     </task>
     <task id="LOCAL-00001" summary="Integration af JWT eksempel">
       <created>1587460342917</created>
@@ -140,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587558333676</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Har ryddet op i samtlige filer i backenddelen">
+      <created>1587729779024</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729779024</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +188,8 @@
     <MESSAGE value="Overskrifter er tilføjet" />
     <MESSAGE value="CSS fungerer som det skal" />
     <MESSAGE value="MinSide ændringer" />
-    <option name="LAST_COMMIT_MESSAGE" value="MinSide ændringer" />
+    <MESSAGE value="Har ryddet op i samtlige filer i backenddelen" />
+    <MESSAGE value="Har ryddet op i samtlige filer i frontenden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Har ryddet op i samtlige filer i frontenden" />
   </component>
 </project>

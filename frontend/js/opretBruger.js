@@ -1,5 +1,3 @@
-import * as utils from './modules/utils.mjs';
-
 //Kaldes når kundeformen submittes
 $("#opretBrugerForm").submit((e) => {
     e.preventDefault();
