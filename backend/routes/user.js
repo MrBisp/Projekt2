@@ -1,113 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
-
-// Sub classes
-const Revisor = require("../models/Revisor");
-const Kunde = require("../models/Kunde");
-
-//Middleware
+const userController = require('../controllers/user');
+//Middleware -
 const authenticationMiddleware = require('../middleware/authenticationMiddleware');
 
-//Routes
+//Routes -
 //Henter alle brugere fra DB
-router.get('/', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.json(users);
-    } catch (err) {
-        res.json({msg: 'Fejl: ' + err});
-    }
-});
+router.get('/', userController.getAlleBrugere);
 
 //Henter alle brugere af typen 1 (revisorer) fra DB
-router.get('/revisor', async (req, res) => {
-    try {
-        const users = await User.find({type: 1});
-        res.json(users);
-    } catch (err) {
-        res.json({msg: 'Fejl: ' + err});
-    }
-});
-
+router.get('/revisor', userController.getAlleRevisoere);
 
 //Når der oprettes en ny kunde
-router.post("/kunde", async (req, res) => {
-    let privatKunde, erhvervsKunde;
-    //undersøger kundeTypen og definerer property ud fra dette
-    if(req.body.kundeType == 1){
-        privatKunde = true;
-        erhvervsKunde = false;
-        console.log("privat");
-    } else if (req.body.kundeType == 2) {
-        erhvervsKunde = true;
-        privatKunde = false;
-        console.log("erhverv");
-    } else if (req.body.kundeType == 3) {
-        privatKunde = true;
-        erhvervsKunde = true;
-    } else {console.log("Noget gik galt med typen af kunde");}
+router.post("/kunde", userController.postKunde);
 
-    let kunde = new Kunde({
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        navn: req.body.navn,
-        tlf: req.body.tlf,
-        type: 2,
-        privatKunde: privatKunde,
-        erhvervsKunde: erhvervsKunde
-    });
-
-    //Gem kunden og returner den, eller giv en fejl hvis det mislykkes
-    try {
-        const gemtKunde = await kunde.save();
-        res.json(gemtKunde);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.post("/revisor", async (req,res) => {
-    let startTime = req.body.startTime;
-    let slutTime = req.body.slutTime;
-    let startMinut = req.body.startMinutter;
-    let slutMinut = req.body.slutMinutter;
-    let startTid, slutTid;
-
-    //Konverterer 30 minutter til 0,5 (timer)
-    if(startMinut == 30) startMinut = 0.5;
-    //Bemærk at startTime ganges med 1, for at konvertere fra String -> Number. Uden dette får man uventede resultater
-    startTid = startTime * 1 + startMinut;
-
-    //Samme som ovenstående linjer kode
-    if(slutMinut == 30) slutMinut = 0.5;
-    slutTid = slutTime * 1 + slutMinut;
-
-    let revisor = new Revisor({
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        navn: req.body.navn,
-        tlf: req.body.tlf,
-        type: 1,
-        startDag: startTid,
-        slutDag: slutTid
-    });
-
-    //Gemmer revisor og returnerer
-    try {
-        let gemtRevisor = await revisor.save();
-        res.json(gemtRevisor);
-    } catch (err) {
-        res.status(500).json(err)
-    }
-});
+router.post("/revisor", userController.postRevisor);
 
 //Benytter middleware authenticationMiddleware til at vertify at authorization headeren er gyldig
 //Er den dette, får man brugeren i req.user
-router.get('/userByToken', authenticationMiddleware, (req,res) => {
-    res.json({'user': req.user});
-});
+router.get('/userByToken', authenticationMiddleware, userController.getBrugerByToken);
 
 module.exports = router;
