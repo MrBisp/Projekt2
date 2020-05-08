@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const accessTokenSecret = 'youraccesstokensecret';
+const accessTokenSecret = 'studiegruppe50semester2';
 
 module.exports = (req, res, next) => {
     //Hent http-requestens 'Authorization'-header
@@ -21,3 +21,4 @@ module.exports = (req, res, next) => {
         res.status(401);
     }
 };
+

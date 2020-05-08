@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const moedeController = require('../controllers/moede');
+router.get('/kunde/:id', moedeController.getMoedeByKundeid);
+
+const authenticationMiddleware = require('../middleware/authenticationMiddleware');
 
 //Routes
 router.get('/', moedeController.getAlleMoeder);
@@ -15,10 +18,9 @@ router.get('/kunde/:id', moedeController.getMoedeByKundeid);
 router.post('/', moedeController.postMoede);
 
 //Fjerner møde
-router.delete('/:id', moedeController.deleteMoede);
+router.delete('/:id', authenticationMiddleware, moedeController.deleteMoede);
 
-
-//Godkend møde i møde
-router.put('/approve/:id', moedeController.putMoedeStatus);
+//Godkend møde med mødeid id
+router.put('/approve/:id', authenticationMiddleware, moedeController.putMoedeStatus);
 
 module.exports = router;

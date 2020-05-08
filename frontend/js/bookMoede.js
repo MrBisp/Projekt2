@@ -124,7 +124,7 @@ $("#opretMødeForm").submit(function (e) {
         console.log('Vi er logget ind!');
     }
 
-    //POSTer det nye møde til databsen
+    //POSTer det nye møde til databasen
     $.ajax({
         url: "http://localhost:3000/moede",
         type: 'post',
