@@ -10,11 +10,16 @@ function sletmoede(e) {
     //Laver DELETE request
     $.ajax({
         type: 'DELETE',
-        url: "http://localhost:3000/moede/" + id  })
-        .done(function(resultMoeder) {
+        url: "http://localhost:3000/moede/" + id,
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization", 'Bearer ' + token);
+        },
+        success: (result) => {
             alert ("Mødet er blevet slettet");
             location.reload();
-        });
+        }
+    });
+
 
 }
 
@@ -25,9 +30,15 @@ function approveMoede (moedeId) {
     console.log(id);
     $.ajax({url: "http://localhost:3000/moede/approve/" + id,
         type: "PUT",
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization", 'Bearer ' + token);
+        },
         success: (result) => {
             console.log(result);
             location.reload();
+        },
+        error: (e) => {
+            console.log(e);
         }
     });
 }

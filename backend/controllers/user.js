@@ -16,6 +16,7 @@ exports.getAlleBrugere = async function (req, res) {
 exports.getAlleRevisoere = async function (req, res) {
     try {
         const users = await User.find({type: 1});
+        console.log(users);
         res.json(users);
     } catch (err) {
         res.json({msg: 'Fejl: ' + err});
@@ -70,11 +71,14 @@ exports.postRevisor = async function (req,res) {
     //Konverterer 30 minutter til 0,5 (timer)
     if(startMinut == 30) startMinut = 0.5;
     //Bemærk at startTime ganges med 1, for at konvertere fra String -> Number. Uden dette får man uventede resultater
-    startTid = startTime * 1 + startMinut;
+    startTid = startTime * 1 + startMinut * 1;
 
     //Samme som ovenstående linjer kode
     if(slutMinut == 30) slutMinut = 0.5;
-    slutTid = slutTime * 1 + slutMinut;
+    slutTid = slutTime * 1 + slutMinut * 1;
+    console.log('starttime:' + startTime * 1);
+    console.log('startminut:' + startMinut * 1);
+    console.log('start: ' + startTid);
 
     let revisor = new Revisor({
         username: req.body.username,

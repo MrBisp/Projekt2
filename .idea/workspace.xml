@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="Har ryddet op i samtlige filer i frontenden">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/moede.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/user.js" afterDir="false" />
+    <list default="true" id="8b0589c5-2333-438c-920d-58fce748b704" name="Default Changelist" comment="Smårettelser samt tilføjelse af md5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/moede.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/moede.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/moede.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/authenticationMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/minSideFunktionalitet.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/minSideFunktionalitet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/opretBruger.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/opretBruger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/views/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1XkaywRQUojSmfg3ifgPmdjhyPi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -33,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,6 +68,12 @@
       <workItem from="1587729740762" duration="78000" />
       <workItem from="1587889598581" duration="5480000" />
       <workItem from="1588334785119" duration="2155000" />
+      <workItem from="1588744794965" duration="9819000" />
+      <workItem from="1588855430366" duration="3529000" />
+      <workItem from="1588931232181" duration="1192000" />
+      <workItem from="1588937130671" duration="975000" />
+      <workItem from="1588938139623" duration="34000" />
+      <workItem from="1589030900473" duration="4019000" />
     </task>
     <task id="LOCAL-00001" summary="Integration af JWT eksempel">
       <created>1587460342917</created>
@@ -142,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587729779024</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Smårettelser samt tilføjelse af md5">
+      <created>1588938172599</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588938172599</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +190,7 @@
     <MESSAGE value="MinSide ændringer" />
     <MESSAGE value="Har ryddet op i samtlige filer i backenddelen" />
     <MESSAGE value="Har ryddet op i samtlige filer i frontenden" />
-    <option name="LAST_COMMIT_MESSAGE" value="Har ryddet op i samtlige filer i frontenden" />
+    <MESSAGE value="Smårettelser samt tilføjelse af md5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Smårettelser samt tilføjelse af md5" />
   </component>
 </project>

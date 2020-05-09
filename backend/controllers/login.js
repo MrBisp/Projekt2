@@ -1,8 +1,8 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-//Access token
-const accessTokenSecret = 'youraccesstokensecret';
+//Secret
+const accessTokenSecret = 'studiegruppehalvtreds';
 
 //Logger en bruger ind, og signer en token. Objectet bliver altså 'oversat' til en token
 exports.login = async function (req,res) {

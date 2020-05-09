@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const accessTokenSecret = 'studiegruppe50semester2';
+const accessTokenSecret = 'studiegruppehalvtreds';
 
 module.exports = (req, res, next) => {
     //Hent http-requestens 'Authorization'-header
@@ -7,9 +7,11 @@ module.exports = (req, res, next) => {
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
+        console.log('token:' + token);
         jwt.verify(token, accessTokenSecret, (err, user) => {
             //Hvis token er ugyldig, send 403 og fejlbesked
             if (err) {
+                console.log(err);
                 return res.status(403).json(err);
             }
             //Hvis token er valid, gør useren tilgængelig ved req.user.

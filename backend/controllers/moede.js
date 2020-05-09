@@ -69,10 +69,13 @@ exports.deleteMoede = async function (req, res) {
 //Ændrer approved propertien ved et møde i DB
 exports.putMoedeStatus = async function (req, res) {
     //Tager ingen argumenter, ændrer approved fra false til true
-    let moede = await Moede.findOneAndUpdate({_id: req.params.id}, {approved: true}, {new: true});
+    console.log('møde approving');
     try {
+        let moede = await Moede.findOneAndUpdate({_id: req.params.id}, {approved: true}, {new: true});
         res.json({newMoede: moede});
+        console.log('Mødet blev ændret');
     } catch (e) {
         res.json({mag:"fejl: " + e});
+        console.log('Der skete en fejl');
     }
 };
